@@ -833,7 +833,7 @@
  */
 
 :root {
-  --blue: #2C7BE5;
+  --blue: #0069ff;
   --indigo: #727cf5;
   --purple: #6b5eae;
   --pink: #ff679b;
@@ -4782,7 +4782,7 @@ input[type="button"].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #12263F;
+  color: #0069ff;
   text-decoration: none;
   background-color: transparent;
 }
@@ -5533,7 +5533,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #12263F;
+  color: #0069ff;
   background-color: transparent;
   border-color: transparent transparent #2C7BE5;
 }
@@ -16112,7 +16112,7 @@ button:focus {
 }
 
 .top-nav-divider {
-  border: 1px solid #ececec;
+  border: 0.5px solid #ececec;
   position: relative;
   height: 39px;
   margin: 0 10px 0 0;
@@ -16124,7 +16124,7 @@ button:focus {
 }
 
 .top-nav-divider {
-  border: 1px solid #ececec;
+  border: 0.5px solid #ececec;
   position: relative;
   height: 39px;
   margin: 0 10px 0 0;

@@ -127,8 +127,8 @@
 
             <!-- Navigation -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('admin.dashboard.index') }}">
                         Dashboard
                     </a>
                 </li>

@@ -25,7 +25,13 @@
 
             <!-- Main Content -->
             <div class="main-content">
-                @yield('content')
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10 col-xl-8">
+                         @yield('content')
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
