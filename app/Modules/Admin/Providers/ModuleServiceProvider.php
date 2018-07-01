@@ -17,6 +17,14 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'admin');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'admin');
         $this->loadConfigsFrom(__DIR__.'/../config');
+
+        // Copy files
+        $this->publishes([
+            __DIR__.'/../Resources/Assets/fonts/feather/fonts' => public_path('fonts'),
+        ], 'modules');
+        $this->publishes([
+            __DIR__.'/../Resources/Assets/img' => public_path('assets/modules/admin/img'),
+        ], 'modules');
     }
 
     /**
