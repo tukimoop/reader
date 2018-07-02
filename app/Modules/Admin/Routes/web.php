@@ -18,4 +18,13 @@ Route::group(['prefix' => 'admin'], function () {
     // Dashboard
     Route::redirect('/', '/admin/dashboard');
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard.index');
+
+    // System
+    Route::group(['prefix' => 'system'], function () {
+
+        Route::redirect('/', '/admin/system/general');
+
+        Route::get('general', 'SystemController@general')->name('admin.system.general');
+
+    });
 });

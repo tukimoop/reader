@@ -840,7 +840,7 @@
   --red: #E63757;
   --orange: #fd7e14;
   --yellow: #F6C343;
-  --green: #00D97E;
+  --green: #5fc97b;
   --teal: #02a8b5;
   --cyan: #39afd1;
   --white: #FFFFFF;
@@ -861,7 +861,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Cerebri Sans", sans-serif;
+  --font-family-sans-serif: "Montserrat", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -900,7 +900,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cerebri Sans", sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.5;
@@ -5959,12 +5959,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(18, 38, 63, 0.9);
+  color: #0069ff;
 }
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-  color: rgba(18, 38, 63, 0.9);
+  color: #0069ff;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -5984,7 +5984,7 @@ input[type="button"].btn-block {
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(18, 38, 63, 0.9);
+  color: #0069ff;
 }
 
 .navbar-light .navbar-toggler {
@@ -6001,12 +6001,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-text a {
-  color: rgba(18, 38, 63, 0.9);
+  color: #0069ff;
 }
 
 .navbar-light .navbar-text a:hover,
 .navbar-light .navbar-text a:focus {
-  color: rgba(18, 38, 63, 0.9);
+  color: #0069ff;
 }
 
 .navbar-dark .navbar-brand {
@@ -7371,7 +7371,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cerebri Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7496,7 +7496,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 10rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Cerebri Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -16123,6 +16123,20 @@ button:focus {
           box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
 }
 
+.active {
+  color: #0069ff;
+}
+
+.btn-success {
+  color: #fff;
+  background: #15CD72;
+  border: 1px solid #15CD72;
+}
+
+.header-title {
+  font-weight: 400;
+}
+
 .top-nav-divider {
   border: 0.5px solid #ececec;
   position: relative;
@@ -16133,5 +16147,19 @@ button:focus {
 .navbar-shadow {
   -webkit-box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
           box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
+}
+
+.active {
+  color: #0069ff;
+}
+
+.btn-success {
+  color: #fff;
+  background: #15CD72;
+  border: 1px solid #15CD72;
+}
+
+.header-title {
+  font-weight: 400;
 }
 

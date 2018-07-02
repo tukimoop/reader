@@ -12,10 +12,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $user = Auth::user();
-
-//        $user->assign('admin');
-
         return view('admin::dashboard.index');
     }
 }

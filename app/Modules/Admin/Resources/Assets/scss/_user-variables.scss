@@ -11,9 +11,12 @@
 // Remove the "//" to comment it in and see it in action!
 // $body-bg: $black;
 
-$font-family-base: 'Montserrat', sans-serif;
+$font-family-sans-serif: 'Montserrat', sans-serif;
 
 $blue: #0069ff;
+$green: #5fc97b;
+
+$navbar-light-active-color: $blue;
 
 $nav-tabs-link-active-color: $blue;
 $dropdown-link-hover-color: $blue;

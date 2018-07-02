@@ -12,12 +12,12 @@
 
                     <!-- Pretitle -->
                     <h6 class="header-pretitle">
-                        Admin Control Panel
+                        Dashboard
                     </h6>
 
                     <!-- Title -->
                     <h1 class="header-title">
-                        Dashboard
+                        Hi, {{ Auth::user()->name }}
                     </h1>
 
                 </div>
