@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             LanguagesTableSeeder::class,
             AdministratorSeeder::class,
             AbilitiesTableSeeder::class,
+            SettingsTableSeeder::class
         ]);
     }
 }

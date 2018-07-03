@@ -43,6 +43,11 @@
                             Performance
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link {{ Route::currentRouteNamed('admin.system.performance') ? 'active' : '' }}">
+                            Integration
+                        </a>
+                    </li>
                 </ul>
 
             </div>

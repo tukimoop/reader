@@ -12,6 +12,8 @@ class DashboardController extends Controller
 
     public function index()
     {
+//        dd(config());
+
         return view('admin::dashboard.index');
     }
 }
