@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::redirect('/', '/admin/system/general');
 
         Route::get('general', 'SystemController@general')->name('admin.system.general');
+        Route::get('security', 'SystemController@security')->name('admin.system.security');
+        Route::get('performance', 'SystemController@performance')->name('admin.system.performance');
 
     });
 });

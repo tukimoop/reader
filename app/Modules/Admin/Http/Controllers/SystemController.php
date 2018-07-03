@@ -12,4 +12,14 @@ class SystemController extends Controller
     {
         return view('admin::system.general');
     }
+
+    public function security()
+    {
+
+    }
+
+    public function performance()
+    {
+
+    }
 }
