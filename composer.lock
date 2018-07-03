@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b944c7ef6f36840647c9f2f1dd91f38",
+    "content-hash": "b91c8f7b4f1421258b358f6912913630",
     "packages": [
         {
             "name": "akaunting/setting",
@@ -68,6 +68,62 @@
                 "persistent"
             ],
             "time": "2018-06-01T07:02:27+00:00"
+        },
+        {
+            "name": "akaunting/version",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akaunting/version.git",
+                "reference": "43628c3f15ac9c546cc90f216f1f03446a4c0812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akaunting/version/zipball/43628c3f15ac9c546cc90f216f1f03446a4c0812",
+                "reference": "43628c3f15ac9c546cc90f216f1f03446a4c0812",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.2.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akaunting\\Version\\Provider"
+                    ],
+                    "aliases": {
+                        "Version": "Akaunting\\Version\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akaunting\\Version\\": "./src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Duliçi",
+                    "email": "info@akaunting.com",
+                    "homepage": "https://akaunting.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Version management package for Laravel.",
+            "keywords": [
+                "laravel",
+                "version"
+            ],
+            "time": "2017-08-24T08:04:43+00:00"
         },
         {
             "name": "caffeinated/modules",

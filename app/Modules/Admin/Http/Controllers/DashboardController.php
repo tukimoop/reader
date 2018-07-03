@@ -12,7 +12,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-//        dd(config());
+//        Auth::user()->assign('admin');
 
         return view('admin::dashboard.index');
     }
