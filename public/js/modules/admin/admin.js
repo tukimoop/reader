@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 58);
+/******/ 	return __webpack_require__(__webpack_require__.s = 62);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -55631,14 +55631,18 @@ module.exports = camelize;
 /* 55 */,
 /* 56 */,
 /* 57 */,
-/* 58 */
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -55648,7 +55652,8 @@ module.exports = __webpack_require__(59);
  * building robust, powerful web applications using React + Laravel.
  */
 
-__webpack_require__(60);
+__webpack_require__(64);
+// require('./theme');
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -55656,10 +55661,10 @@ __webpack_require__(60);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__webpack_require__(61);
+__webpack_require__(65);
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -55720,7 +55725,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55762,29 +55767,29 @@ function _inherits(subClass, superClass) {
 
 
 
-var Example = function (_Component) {
-    _inherits(Example, _Component);
+var AdminExample = function (_Component) {
+    _inherits(AdminExample, _Component);
 
-    function Example() {
-        _classCallCheck(this, Example);
+    function AdminExample() {
+        _classCallCheck(this, AdminExample);
 
-        return _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (AdminExample.__proto__ || Object.getPrototypeOf(AdminExample)).apply(this, arguments));
     }
 
-    _createClass(Example, [{
+    _createClass(AdminExample, [{
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'row justify-content-center' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-8' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-header' }, 'Example Component'), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-body' }, 'I\'m an example component!')))));
         }
     }]);
 
-    return Example;
+    return AdminExample;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Example);
+/* harmony default export */ __webpack_exports__["default"] = (AdminExample);
 
-if (document.getElementById('example')) {
-    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Example, null), document.getElementById('example'));
+if (document.getElementById('adminexample')) {
+    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(AdminExample, null), document.getElementById('adminexample'));
 }
 
 /***/ })

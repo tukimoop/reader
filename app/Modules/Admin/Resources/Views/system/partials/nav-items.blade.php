@@ -10,7 +10,7 @@
 
                 <!-- Title -->
                 <h1 class="header-title">
-                    General Settings
+                    @yield('pageTitle')
                 </h1>
 
             </div>
@@ -29,17 +29,17 @@
                 <!-- Nav -->
                 <ul class="nav nav-tabs nav-overflow header-tabs">
                     <li class="nav-item">
-                        <a href="#" class="nav-link  {{ Route::currentRouteNamed('admin.system.general') ? 'active' : '' }}">
+                        <a href="{{ route('admin.system.general') }}" class="nav-link  {{ Route::currentRouteNamed('admin.system.general') ? 'active' : '' }}">
                             General
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ Route::currentRouteNamed('admin.system.security') ? 'active' : '' }}">
+                        <a href="{{ route('admin.system.security') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.security') ? 'active' : '' }}">
                             Security
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ Route::currentRouteNamed('admin.system.performance') ? 'active' : '' }}">
+                        <a href="{{ route('admin.system.performance') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.performance') ? 'active' : '' }}">
                             Performance
                         </a>
                     </li>

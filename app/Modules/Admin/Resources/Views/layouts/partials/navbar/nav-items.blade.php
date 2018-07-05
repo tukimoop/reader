@@ -4,8 +4,8 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.system.general') }}">
+<li class="nav-item {{ Route::currentRouteNamed('admin.content.*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('admin.content.comics') }}">
         Content
     </a>
 </li>
