@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Styles -->
+{{--        <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('css/modules/admin/theme.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -37,7 +38,10 @@
         </div>
 
         <!-- Scripts -->
+{{--        <script src="{{ asset('js/app.js') }}"></script>--}}
         <script src="{{ asset('js/modules/admin/theme.js') }}"></script>
         <script src="{{ asset('js/modules/admin/admin.js') }}"></script>
+
+        @yield('js')
     </body>
 </html>

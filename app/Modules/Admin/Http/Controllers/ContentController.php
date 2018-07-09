@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class ContentController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function comics()
     {
         return view('admin::content.comics');

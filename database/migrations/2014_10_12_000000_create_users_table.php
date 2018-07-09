@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('avatar_url')->nullable();
             $table->string('cover_url')->nullable();
+            $table->dateTime('last_seen')->nullable();
 
             $table->timestamps();
         });

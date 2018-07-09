@@ -28,6 +28,7 @@ class SettingsTableSeeder extends Seeder
             'security.session.lifetime' => 60,
             'security.session.encrypt' => true,
             'security.session.https_only' => true,
+            'security.comics.force' => false
         ])->save();
     }
 }

@@ -16123,6 +16123,11 @@ button:focus {
           box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
 }
 
+.navbar {
+  padding: 0px 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
 .active {
   color: #0069ff;
 }
@@ -16147,6 +16152,11 @@ button:focus {
 .navbar-shadow {
   -webkit-box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
           box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.03);
+}
+
+.navbar {
+  padding: 0px 5px;
+  border-bottom: 1px solid #f1f1f1;
 }
 
 .active {

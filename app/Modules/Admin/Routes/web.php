@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], function () {
 
     // Dashboard
     Route::redirect('/', '/admin/dashboard');
@@ -24,6 +24,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
         // Comics
         Route::get('comics', 'ContentController@comics')->name('admin.content.comics');
+
+    });
+
+    // Content
+    Route::group(['prefix' => 'members'], function () {
+
+        // Comics
+        Route::get('', 'MembersController@index')->name('admin.members.index');
 
     });
 
@@ -46,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
         // Performance
         Route::get('performance', 'SystemController@performance')->name('admin.system.performance');
+        Route::post('performance', 'SystemController@updatePerformance')->name('admin.system.performance.update');
 
     });
 });

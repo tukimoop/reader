@@ -10,8 +10,8 @@
     </a>
 </li>
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.system.general') }}">
+<li class="nav-item {{ Route::currentRouteNamed('admin.members.*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('admin.members.index') }}">
         Members
     </a>
 </li>
