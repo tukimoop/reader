@@ -12,6 +12,7 @@
         "caffeinated/modules": "^4.3",
         "fideloper/proxy": "^4.0",
         "laracasts/flash": "^3.0",
+        "laracasts/generators": "^1.1",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "silber/bouncer": "v1.0.0-rc.1",
