@@ -29,9 +29,9 @@ class CreateUserSettingsTable extends Migration
             $table->string('name_myanimelist')->nullable();
             $table->string('name_kitsu')->nullable();
 
-            $table->boolean('view_email')->default(0);
-            $table->boolean('view_adult_content')->default(0);
-            $table->boolean('view_globally')->default(1);
+            $table->boolean('show_email')->default(0);
+            $table->boolean('show_adult_content')->default(0);
+            $table->boolean('show_globally')->default(1);
 
             $table->timestamps();
 
