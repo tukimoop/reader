@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AdministratorSeeder::class,
             AbilitiesTableSeeder::class,
             GenresTableSeeder::class,
+            ComicStatusesTableSeeder::class
         ]);
     }
 }

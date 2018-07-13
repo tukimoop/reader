@@ -30,7 +30,7 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-12 col-lg-10 col-xl-8">
-                         @yield('content')
+                            @yield('content')
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Scripts -->
-{{--        <script src="{{ asset('js/app.js') }}"></script>--}}
+        {{--<script src="{{ asset('js/app.js') }}"></script>--}}
         <script src="{{ asset('js/modules/admin/theme.js') }}"></script>
         <script src="{{ asset('js/modules/admin/admin.js') }}"></script>
 

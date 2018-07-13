@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(6);
-var isBuffer = __webpack_require__(22);
+var isBuffer = __webpack_require__(23);
 
 /*global toString:true*/
 
@@ -381,7 +381,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(25);
+var normalizeHeaderName = __webpack_require__(26);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -475,7 +475,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(24)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(25)))
 
 /***/ }),
 /* 2 */
@@ -13472,12 +13472,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(26);
-var buildURL = __webpack_require__(28);
-var parseHeaders = __webpack_require__(29);
-var isURLSameOrigin = __webpack_require__(30);
+var settle = __webpack_require__(27);
+var buildURL = __webpack_require__(29);
+var parseHeaders = __webpack_require__(30);
+var isURLSameOrigin = __webpack_require__(31);
 var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(31);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(32);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13574,7 +13574,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(32);
+      var cookies = __webpack_require__(33);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13658,7 +13658,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(27);
+var enhanceError = __webpack_require__(28);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13724,7 +13724,7 @@ module.exports = Cancel;
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(40);
+  module.exports = __webpack_require__(41);
 }
 
 
@@ -13992,7 +13992,7 @@ module.exports = warning;
 var printWarning = function() {};
 
 if (true) {
-  var ReactPropTypesSecret = __webpack_require__(41);
+  var ReactPropTypesSecret = __webpack_require__(42);
   var loggedTypeFailures = {};
 
   printWarning = function(text) {
@@ -14075,6 +14075,999 @@ module.exports = checkPropTypes;
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+//
+// theme.js
+// Theme specific JavaScript
+//
+
+
+
+//
+// Dropdowns ==================================
+//
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var Dropdowns = function () {
+
+  // Variables
+  //
+  // Dropdown variales
+
+  var $dropdown = $('.dropup, .dropright, .dropdown, .dropleft');
+  var $dropdownMenu = $('.dropdown-menu');
+  var $dropdownSubmenu = $('.dropdown-menu .dropdown-menu');
+  var $dropdownSubmenuToggle = $('.dropdown-menu .dropdown-toggle');
+
+  // Methods
+  //
+  // Droddown functions
+
+  // Toggle submenu
+  function toggleSubmenu(toggle) {
+    var $siblingDropdown = toggle.closest($dropdown).siblings($dropdown);
+    var $siblingSubmenu = $siblingDropdown.find($dropdownMenu);
+
+    // Hide sibling submenus
+    $siblingSubmenu.removeClass('show');
+
+    // Show / hide current submenu
+    toggle.next($dropdownSubmenu).toggleClass('show');
+  }
+
+  // Hide submenu
+  function hideSubmenu(dropdown) {
+    var $submenu = dropdown.find($dropdownSubmenu);
+
+    // Check if there is a submenu
+    if ($submenu.length) {
+      $submenu.removeClass('show');
+    }
+  }
+
+  // Events
+  //
+  // Dropdown events
+
+  // Toggle submenu
+  $dropdownSubmenuToggle.on('click', function () {
+    toggleSubmenu($(this));
+
+    return false;
+  });
+
+  // Hide submenu
+  $dropdown.on('hide.bs.dropdown', function () {
+    hideSubmenu($(this));
+  });
+}();
+
+//
+// Charts global ==================================
+//
+
+var ThemeCharts = function () {
+
+  // Variables
+  // 
+  // Theme chart variables
+
+  // Toggle
+  var $toggle = $('[data-toggle="chart"]');
+
+  // Fonts
+  var fonts = {
+    base: 'Cerebri Sans'
+
+    // Colors
+  };var colors = {
+    gray: {
+      100: '#95AAC9',
+      300: '#E3EBF6',
+      600: '#95AAC9',
+      700: '#6E84A3',
+      900: '#283E59'
+    },
+    primary: {
+      100: '#D2DDEC',
+      300: '#A6C5F7',
+      700: '#2C7BE5'
+    },
+    black: '#12263F',
+    white: '#FFFFFF',
+    transparent: 'transparent'
+  };
+
+  // Options
+  var options = {
+    defaults: {
+      global: {
+        responsive: true,
+        maintainAspectRatio: false,
+        defaultColor: colors.primary[600],
+        defaultFontColor: colors.gray[600],
+        defaultFontFamily: fonts.base,
+        defaultFontSize: 13,
+        layout: {
+          padding: 0
+        },
+        legend: {
+          display: false,
+          position: 'bottom',
+          labels: {
+            usePointStyle: true,
+            padding: 16
+          }
+        },
+        elements: {
+          point: {
+            radius: 0,
+            backgroundColor: colors.primary[700]
+          },
+          line: {
+            tension: .4,
+            borderWidth: 3,
+            borderColor: colors.primary[700],
+            backgroundColor: colors.transparent,
+            borderCapStyle: 'rounded'
+          },
+          rectangle: {
+            backgroundColor: colors.primary[700]
+          },
+          arc: {
+            borderWidth: 4,
+            backgroundColor: colors.primary[700]
+          }
+        },
+        tooltips: {
+          enabled: false,
+          mode: 'index',
+          intersect: false,
+          custom: function custom(model) {
+
+            // Get tooltip
+            var $tooltip = $('#chart-tooltip');
+
+            // Create tooltip on first render
+            if (!$tooltip.length) {
+              $tooltip = $('<div id="chart-tooltip" class="popover bs-popover-top" role="tooltip"></div>');
+
+              // Append to body
+              $('body').append($tooltip);
+            }
+
+            // Hide if no tooltip
+            if (model.opacity === 0) {
+              $tooltip.css('display', 'none');
+              return;
+            }
+
+            function getBody(bodyItem) {
+              return bodyItem.lines;
+            }
+
+            // Fill with content
+            if (model.body) {
+              var titleLines = model.title || [];
+              var bodyLines = model.body.map(getBody);
+              var html = '';
+
+              // Add arrow
+              html += '<div class="arrow"></div>';
+
+              // Add header
+              titleLines.forEach(function (title) {
+                html += '<h3 class="popover-header text-center">' + title + '</h3>';
+              });
+
+              // Add body
+              bodyLines.forEach(function (body, i) {
+                var colors = model.labelColors[i];
+                var styles = 'background-color: ' + colors.backgroundColor;
+                var indicator = '<span class="popover-body-indicator" style="' + styles + '"></span>';
+                var align = bodyLines.length > 1 ? 'justify-content-left' : 'justify-content-center';
+                html += '<div class="popover-body d-flex align-items-center ' + align + '">' + indicator + body + '</div>';
+              });
+
+              $tooltip.html(html);
+            }
+
+            // Get tooltip position
+            var $canvas = $(this._chart.canvas);
+
+            var canvasWidth = $canvas.outerWidth();
+            var canvasHeight = $canvas.outerHeight();
+
+            var canvasTop = $canvas.offset().top;
+            var canvasLeft = $canvas.offset().left;
+
+            var tooltipWidth = $tooltip.outerWidth();
+            var tooltipHeight = $tooltip.outerHeight();
+
+            var top = canvasTop + model.caretY - tooltipHeight - 16;
+            var left = canvasLeft + model.caretX - tooltipWidth / 2;
+
+            // Display tooltip
+            $tooltip.css({
+              'top': top + 'px',
+              'left': left + 'px',
+              'display': 'block'
+            });
+          },
+          callbacks: {
+            label: function label(item, data) {
+              var label = data.datasets[item.datasetIndex].label || '';
+              var yLabel = item.yLabel;
+              var content = '';
+
+              if (data.datasets.length > 1) {
+                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+              }
+
+              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
+              return content;
+            }
+          }
+        }
+      },
+      doughnut: {
+        cutoutPercentage: 83,
+        tooltips: {
+          callbacks: {
+            title: function title(item, data) {
+              var title = data.labels[item[0].index];
+              return title;
+            },
+            label: function label(item, data) {
+              var value = data.datasets[0].data[item.index];
+              var content = '';
+
+              content += '<span class="popover-body-value">' + value + '%</span>';
+              return content;
+            }
+          }
+        },
+        legendCallback: function legendCallback(chart) {
+          var data = chart.data;
+          var content = '';
+
+          data.labels.forEach(function (label, index) {
+            var bgColor = data.datasets[0].backgroundColor[index];
+
+            content += '<span class="chart-legend-item">';
+            content += '<i class="chart-legend-indicator" style="background-color: ' + bgColor + '"></i>';
+            content += label;
+            content += '</span>';
+          });
+
+          return content;
+        }
+      }
+
+      // yAxes
+    } };Chart.scaleService.updateScaleDefaults('linear', {
+    gridLines: {
+      borderDash: [2],
+      borderDashOffset: [2],
+      color: colors.gray[300],
+      drawBorder: false,
+      drawTicks: false,
+      lineWidth: 0,
+      zeroLineWidth: 0,
+      zeroLineColor: colors.gray[300],
+      zeroLineBorderDash: [2],
+      zeroLineBorderDashOffset: [2]
+    },
+    ticks: {
+      beginAtZero: true,
+      padding: 10,
+      callback: function callback(value) {
+        if (!(value % 10)) {
+          return '$' + value + 'k';
+        }
+      }
+    }
+  });
+
+  // xAxes
+  Chart.scaleService.updateScaleDefaults('category', {
+    gridLines: {
+      drawBorder: false,
+      drawOnChartArea: false,
+      drawTicks: false
+    },
+    ticks: {
+      padding: 20
+    },
+    maxBarThickness: 10
+  });
+
+  // Methods
+  //
+  // Theme chart functions
+
+  // Parse global options
+  function parseOptions(parent, options) {
+    for (var item in options) {
+      if (_typeof(options[item]) !== 'object') {
+        parent[item] = options[item];
+      } else {
+        parseOptions(parent[item], options[item]);
+      }
+    }
+  }
+
+  // Push options
+  function pushOptions(parent, options) {
+    for (var item in options) {
+      if (Array.isArray(options[item])) {
+        options[item].forEach(function (data) {
+          parent[item].push(data);
+        });
+      } else {
+        pushOptions(parent[item], options[item]);
+      }
+    }
+  }
+
+  // Pop options
+  function popOptions(parent, options) {
+    for (var item in options) {
+      if (Array.isArray(options[item])) {
+        options[item].forEach(function (data) {
+          parent[item].pop();
+        });
+      } else {
+        popOptions(parent[item], options[item]);
+      }
+    }
+  }
+
+  // Toggle options
+  function toggleOptions(elem) {
+    var options = elem.data('add');
+    var $target = $(elem.data('target'));
+    var $chart = $target.data('chart');
+
+    if (elem.is(':checked')) {
+
+      // Add options
+      pushOptions($chart, options);
+
+      // Update chart
+      $chart.update();
+    } else {
+
+      // Remove options
+      popOptions($chart, options);
+
+      // Update chart
+      $chart.update();
+    }
+  }
+
+  // Update options
+  function updateOptions(elem) {
+    var options = elem.data('update');
+    var $target = $(elem.data('target'));
+    var $chart = $target.data('chart');
+
+    // Parse options
+    parseOptions($chart, options);
+
+    // Toggle ticks
+    toggleTicks(elem, $chart);
+
+    // Update chart
+    $chart.update();
+  }
+
+  // Toggle ticks
+  function toggleTicks(elem, $chart) {
+
+    if (elem.data('prefix') !== undefined || elem.data('prefix') !== undefined) {
+      var prefix = elem.data('prefix') ? elem.data('prefix') : '';
+      var suffix = elem.data('suffix') ? elem.data('suffix') : '';
+
+      // Update ticks
+      $chart.options.scales.yAxes[0].ticks.callback = function (value) {
+        if (!(value % 10)) {
+          return prefix + value + suffix;
+        }
+      };
+
+      // Update tooltips
+      $chart.options.tooltips.callbacks.label = function (item, data) {
+        var label = data.datasets[item.datasetIndex].label || '';
+        var yLabel = item.yLabel;
+        var content = '';
+
+        if (data.datasets.length > 1) {
+          content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+        }
+
+        content += '<span class="popover-body-value">' + prefix + yLabel + suffix + '</span>';
+        return content;
+      };
+    }
+  }
+
+  // Events
+  //
+  // Run functions on windows load or special events
+
+  // Parse global options
+  parseOptions(Chart, options);
+
+  // Toggle options
+  $toggle.on({
+    'change': function change() {
+      var $this = $(this);
+
+      if ($this.is('[data-add]')) {
+        toggleOptions($this);
+      }
+    },
+    'click': function click() {
+      var $this = $(this);
+
+      if ($this.is('[data-update]')) {
+        updateOptions($this);
+      }
+    }
+  });
+
+  // Return
+  //
+  // Make variables global
+
+  return {
+    fonts: fonts,
+    colors: colors,
+    options: options
+  };
+}();
+
+//
+// Header ==================================
+// Header card charts
+//
+
+var Header = function () {
+
+  // Variables
+
+  var $headerChart = $('#headerChart');
+
+  // Init
+  //
+  // Init chart
+
+  function init($chart) {
+
+    // Create chart
+    var headerChart = new Chart($chart, {
+      type: 'line',
+      options: {
+        scales: {
+          yAxes: [{
+            gridLines: {
+              color: ThemeCharts.colors.gray[900],
+              zeroLineColor: ThemeCharts.colors.gray[900]
+            }
+          }]
+        }
+      },
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Performance',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', headerChart);
+  };
+
+  // Events
+  //
+  // Header chart events
+
+  if ($headerChart.length) {
+    init($headerChart);
+  }
+}();
+
+//
+// Performance ==================================
+// Performance card charts
+//
+
+var Performance = function () {
+
+  // Variables
+
+  var $performanceChart = $('#performanceChart');
+
+  // Init
+  //
+  // Init chart
+
+  function init($chart) {
+
+    // Create chart
+    var performanceChart = new Chart($chart, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Performance',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', performanceChart);
+  }
+
+  // Events
+  //
+  // Performance chart events
+
+  if ($performanceChart.length) {
+    init($performanceChart);
+  }
+}();
+
+//
+// Performance Alias ==================================
+// Performance card charts
+//
+
+var PerformanceAlias = function () {
+
+  // Variables
+
+  var $performanceChartAlias = $('#performanceChartAlias');
+
+  // Init
+  //
+  // Init chart
+
+  function init($chart) {
+
+    // Create chart
+    var performanceChartAlias = new Chart($chart, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Performance',
+          data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', performanceChartAlias);
+  }
+
+  // Events
+  //
+  // Performance chart events
+
+  if ($performanceChartAlias.length) {
+    init($performanceChartAlias);
+  }
+}();
+
+//
+// Orders ==================================
+// Orders card charts
+//
+
+var Orders = function () {
+
+  // Variables
+
+  var $ordersChart = $('#ordersChart');
+
+  // Init
+  //
+  // Init chart
+
+  // Init chart
+  function init($chart) {
+
+    // Create chart
+    var ordersChart = new Chart($chart, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Sales',
+          data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', ordersChart);
+  }
+
+  // Events
+  //
+  // Orders chart events
+
+  // Init chart
+  if ($ordersChart.length) {
+    init($ordersChart);
+  }
+}();
+
+//
+// Orders Alias ==================================
+// Orders card charts
+//
+
+var OrdersAlias = function () {
+
+  // Variables
+
+  var $ordersChartAlias = $('#ordersChartAlias');
+
+  // Init
+  //
+  // Init chart
+
+  // Init chart
+  function init($chart) {
+
+    // Create chart
+    var ordersChartAlias = new Chart($chart, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Sales',
+          data: [25, 20, 30, 22, 17, 10, 18, 26, 28, 26, 20, 32]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', ordersChartAlias);
+  }
+
+  // Events
+  //
+  // Orders chart events
+
+  // Init chart
+  if ($ordersChartAlias.length) {
+    init($ordersChartAlias);
+  }
+}();
+
+//
+// Devices ==================================
+// Devices card charts
+//
+
+var Devices = function () {
+
+  // Variables
+
+  var $devicesChart = $('#devicesChart');
+
+  // Methods
+  //
+  // Chart functions
+
+  // Init chart
+  function init($chart) {
+
+    // Create chart
+    var devicesChart = new Chart($chart, {
+      type: 'doughnut',
+      data: {
+        labels: ['Desktop', 'Tablet', 'Mobile'],
+        datasets: [{
+          data: [60, 25, 15],
+          backgroundColor: [ThemeCharts.colors.primary[700], ThemeCharts.colors.primary[300], ThemeCharts.colors.primary[100]],
+          hoverBorderColor: ThemeCharts.colors.white
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', devicesChart);
+  }
+
+  // Generate legend
+  function generateLegend($chart) {
+    var content = $chart.data('chart').generateLegend();
+    var legend = $chart.data('target');
+    var $legend = $(legend);
+
+    $legend.html(content);
+  }
+
+  // Events
+  //
+  // Chart events
+
+  if ($devicesChart.length) {
+
+    // Init chart
+    init($devicesChart);
+
+    // Generate legend
+    generateLegend($devicesChart);
+  }
+}();
+
+//
+// Weekly hours ==================================
+// Weekly hours card charts
+//
+
+var WeeklyHours = function () {
+
+  // Variables
+
+  var $weeklyHoursChart = $('#weeklyHoursChart');
+
+  // Init
+  //
+  // Init chart
+
+  function init($chart) {
+
+    // Create chart
+    var weeklyHoursChart = new Chart($chart, {
+      type: 'bar',
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              callback: function callback(value) {
+                if (!(value % 10)) {
+                  return value + 'hrs';
+                }
+              }
+            }
+          }]
+        },
+        tooltips: {
+          callbacks: {
+            label: function label(item, data) {
+              var label = data.datasets[item.datasetIndex].label || '';
+              var yLabel = item.yLabel;
+              var content = '';
+
+              if (data.datasets.length > 1) {
+                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+              }
+
+              content += '<span class="popover-body-value">' + yLabel + 'hrs</span>';
+              return content;
+            }
+          }
+        }
+      },
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          data: [21, 12, 28, 15, 5, 12, 17, 2]
+        }]
+      }
+    });
+
+    // Save to jQuery object
+    $chart.data('chart', weeklyHoursChart);
+  }
+
+  // Events
+  //
+  // Weekly hours chart events
+
+  if ($weeklyHoursChart.length) {
+    init($weeklyHoursChart);
+  }
+}();
+
+//
+// Navbar ==================================
+//
+
+var Navbar = function () {
+
+  // Variables
+
+  var $nav = $('.navbar-nav, .navbar-nav .nav');
+  var $navCollapse = $('.navbar-nav .collapse');
+
+  // Methods
+  //
+  // Navbar methods
+
+  function accordion($this) {
+    $this.closest($nav).find($navCollapse).not($this).collapse('hide');
+  }
+
+  // Events
+  //
+  // Navbar events
+
+  $navCollapse.on({
+    'show.bs.collapse': function showBsCollapse() {
+      accordion($(this));
+    }
+  });
+}();
+
+//
+// Tooltips ==================================
+//
+
+var Tooltip = function () {
+
+  // Variables
+
+  var $tooltip = $('[data-toggle="tooltip"]');
+
+  // Methods
+  //
+  // Tooltips methods
+
+  function init() {
+    $tooltip.tooltip();
+  }
+
+  // Events
+  //
+  // Tooltip events
+
+  if ($tooltip.length) {
+    init();
+  }
+}();
+
+//
+// Popovers ==================================
+//
+
+var Popover = function () {
+
+  // Variables
+
+  var $popover = $('[data-toggle="popover"]');
+
+  // Methods
+  //
+  // Tooltips methods
+
+  function init() {
+    $popover.popover();
+  }
+
+  // Events
+  //
+  // Tooltip events
+
+  if ($popover.length) {
+    init();
+  }
+}();
+
+//
+// Highlight.js ==================================
+//
+
+var Highlight = function () {
+
+  // Variables
+
+  var $highlight = $('.highlight');
+
+  // Methods
+
+  function init(i, block) {
+    hljs.highlightBlock(block);
+  }
+
+  // Events
+
+  $highlight.each(function (i, block) {
+    init(i, block);
+  });
+}();
+
+//
+// Flatpickr ==================================
+//
+
+var Flatpickr = function () {
+
+  // Variables
+
+  var $formControl = $('#formControlFlatpickr');
+
+  // Methods
+  //
+  // Flatpicks methods
+
+  function init($input) {
+    $input.flatpickr();
+  }
+
+  // Events
+  //
+  // Flatpickr events
+
+  if ($formControl.length) {
+    init($formControl);
+  }
+}();
+
+//
+// List.js ==================================
+//
+
+var Lists = function () {
+
+  // Variables
+
+  var $lists = $('[data-toggle="lists"]');
+  var $listsSort = $('[data-sort]');
+
+  // Methods
+
+  // Init
+  function init($list) {
+    new List($list.get(0), getOptions($list));
+  }
+
+  // Get options
+  function getOptions($list) {
+    var options = {
+      valueNames: $list.data('lists-values'),
+      listClass: $list.data('lists-class') ? $list.data('lists-class') : 'list'
+    };
+
+    return options;
+  }
+
+  // Events
+
+  // Init
+  if ($lists.length) {
+    $lists.each(function () {
+      init($(this));
+    });
+  }
+
+  // Sort
+  $listsSort.on('click', function () {
+    return false;
+  });
+}();
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31184,10 +32177,10 @@ module.exports = checkPropTypes;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(18)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(19)(module)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -31215,7 +32208,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -35148,13 +36141,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(21);
+module.exports = __webpack_require__(22);
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35162,7 +36155,7 @@ module.exports = __webpack_require__(21);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
-var Axios = __webpack_require__(23);
+var Axios = __webpack_require__(24);
 var defaults = __webpack_require__(1);
 
 /**
@@ -35197,14 +36190,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(10);
-axios.CancelToken = __webpack_require__(38);
+axios.CancelToken = __webpack_require__(39);
 axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(39);
+axios.spread = __webpack_require__(40);
 
 module.exports = axios;
 
@@ -35213,7 +36206,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 /*!
@@ -35240,7 +36233,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35248,8 +36241,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(1);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(33);
-var dispatchRequest = __webpack_require__(34);
+var InterceptorManager = __webpack_require__(34);
+var dispatchRequest = __webpack_require__(35);
 
 /**
  * Create a new instance of Axios
@@ -35326,7 +36319,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -35516,7 +36509,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35535,7 +36528,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35568,7 +36561,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35596,7 +36589,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35669,7 +36662,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35729,7 +36722,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35804,7 +36797,7 @@ module.exports = (
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35847,7 +36840,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35907,7 +36900,7 @@ module.exports = (
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35966,18 +36959,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(35);
+var transformData = __webpack_require__(36);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(1);
-var isAbsoluteURL = __webpack_require__(36);
-var combineURLs = __webpack_require__(37);
+var isAbsoluteURL = __webpack_require__(37);
+var combineURLs = __webpack_require__(38);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -36059,7 +37052,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36086,7 +37079,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36107,7 +37100,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36128,7 +37121,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36192,7 +37185,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36226,7 +37219,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37719,7 +38712,7 @@ module.exports = react;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37738,7 +38731,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37778,12 +38771,12 @@ if (false) {
   checkDCE();
   module.exports = require('./cjs/react-dom.production.min.js');
 } else {
-  module.exports = __webpack_require__(43);
+  module.exports = __webpack_require__(44);
 }
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37807,16 +38800,16 @@ if (true) {
 var invariant = __webpack_require__(13);
 var React = __webpack_require__(11);
 var warning = __webpack_require__(15);
-var ExecutionEnvironment = __webpack_require__(44);
+var ExecutionEnvironment = __webpack_require__(45);
 var _assign = __webpack_require__(12);
 var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(16);
-var getActiveElement = __webpack_require__(45);
-var shallowEqual = __webpack_require__(46);
-var containsNode = __webpack_require__(47);
+var getActiveElement = __webpack_require__(46);
+var shallowEqual = __webpack_require__(47);
+var containsNode = __webpack_require__(48);
 var emptyObject = __webpack_require__(14);
-var hyphenateStyleName = __webpack_require__(50);
-var camelizeStyleName = __webpack_require__(52);
+var hyphenateStyleName = __webpack_require__(51);
+var camelizeStyleName = __webpack_require__(53);
 
 // Relying on the `invariant()` implementation lets us
 // have preserve the format and params in the www builds.
@@ -55220,7 +56213,7 @@ module.exports = reactDom;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55259,7 +56252,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55301,7 +56294,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55372,7 +56365,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55387,7 +56380,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(48);
+var isTextNode = __webpack_require__(49);
 
 /*eslint-disable no-bitwise */
 
@@ -55415,7 +56408,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55430,7 +56423,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(49);
+var isNode = __webpack_require__(50);
 
 /**
  * @param {*} object The object to check.
@@ -55443,7 +56436,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55471,7 +56464,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55486,7 +56479,7 @@ module.exports = isNode;
 
 
 
-var hyphenate = __webpack_require__(51);
+var hyphenate = __webpack_require__(52);
 
 var msPattern = /^ms-/;
 
@@ -55513,7 +56506,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55549,7 +56542,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55564,7 +56557,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(53);
+var camelize = __webpack_require__(54);
 
 var msPattern = /^-ms-/;
 
@@ -55592,7 +56585,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55627,7 +56620,6 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 54 */,
 /* 55 */,
 /* 56 */,
 /* 57 */,
@@ -55653,7 +56645,7 @@ module.exports = __webpack_require__(63);
  */
 
 __webpack_require__(64);
-// require('./theme');
+__webpack_require__(17);
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -55668,7 +56660,7 @@ __webpack_require__(65);
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(17);
+window._ = __webpack_require__(18);
 window.Popper = __webpack_require__(4).default;
 
 /**
@@ -55680,7 +56672,7 @@ window.Popper = __webpack_require__(4).default;
 try {
   window.$ = window.jQuery = __webpack_require__(5);
 
-  __webpack_require__(19);
+  __webpack_require__(20);
 } catch (e) {}
 
 /**
@@ -55689,7 +56681,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(20);
+window.axios = __webpack_require__(21);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -55732,7 +56724,7 @@ if (token) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
