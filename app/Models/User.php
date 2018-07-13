@@ -9,6 +9,7 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
+
     use Notifiable, HasRolesAndAbilities;
 
     /**
@@ -33,6 +34,9 @@ class User extends Authenticatable
         'last_seen', 'created_at', 'updated_at'
     ];
 
+    /**
+     * @return bool
+     */
     public function isOnline()
     {
         return Cache::has('user_online_' . $this->id);
