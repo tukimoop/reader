@@ -18,8 +18,9 @@ class CreateComicsTable extends Migration
 
             $table->string('folder_hash')->unique();
             $table->string('name');
-            $table->string('name_native');
+            $table->string('name_native')->nullable();
             $table->unsignedInteger('comic_status_id')->default(1);
+
 
             $table->timestamps();
             $table->softDeletes();

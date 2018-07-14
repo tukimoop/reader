@@ -10,38 +10,41 @@
     <!-- Flash Messages -->
     @include('admin::layouts.partials.flash')
 
-    <!-- Card -->
-    {{--<div class="card card-inactive">--}}
-        {{--<div class="card-body text-center">--}}
+    <!-- No comics message -->
+    @if ($comics->isEmpty())
+    <div class="card card-inactive">
+        <div class="card-body text-center">
 
-            {{--<!-- Image -->--}}
-            {{--<img src="{{ asset('assets/modules/admin/img/illustrations/lost.svg') }}" alt="..." class="img-fluid" style="max-width: 182px;">--}}
+            <!-- Image -->
+            <img src="{{ asset('assets/modules/admin/img/illustrations/lost.svg') }}" alt="..." class="img-fluid" style="max-width: 182px;">
 
-            {{--<!-- Title -->--}}
-            {{--<h1 class="mt-4">--}}
-                {{--No comics yet--}}
-            {{--</h1>--}}
+            <!-- Title -->
+            <h1 class="mt-4">
+                No comics yet
+            </h1>
 
-            {{--<!-- Subtitle -->--}}
-            {{--<p class="text-muted">--}}
-                {{--Create a comic to start showing off your awesome content to the world--}}
-            {{--</p>--}}
+            <!-- Subtitle -->
+            <p class="text-muted">
+                Create a comic to start showing off your awesome content to the world
+            </p>
 
-            {{--<!-- Button -->--}}
-            {{--<a href="#!" class="btn btn-primary">--}}
-                {{--Create Comic--}}
-            {{--</a>--}}
+            <!-- Button -->
+            <a href="#!" class="btn btn-primary">
+                Create Comic
+            </a>
 
-        {{--</div>--}}
-    {{--</div>--}}
+        </div>
+    </div>
 
-    <div class="card" id="comics" data-toggle="comics" data-lists-values='["name"]'>
+    @else
+
+    <div class="card" id="comics">
         <div class="card-header">
 
-            <!-- Form -->
+            <!-- Search -->
             <form>
                 <div class="input-group input-group-flush input-group-merge">
-                    <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                    <input type="search" class="form-control form-control-prepended search" placeholder="Search comics...">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="fe fe-search"></span>
@@ -55,12 +58,13 @@
 
             <!-- List group -->
             <ul class="list-group list-group-flush list my--3">
+                @foreach ($comics as $comic)
                 <li class="list-group-item px-0">
 
                     <div class="row align-items-center">
                         <div class="col-auto">
 
-                            <!-- Avatar -->
+                            <!-- Thumbnail -->
                             <a href="profile-posts.html" class="avatar">
                                 <img src="{{ asset('assets/modules/admin/img/avatars/profiles/avatar-5.jpg') }}" alt="..." class="avatar-img rounded-circle">
                             </a>
@@ -70,136 +74,33 @@
 
                             <!-- Title -->
                             <h4 class="mb-1 name">
-                                <a href="profile-posts.html">Miyah Myles</a>
+                                <a href="profile-posts.html">{{ $comic->name }}</a>
                             </h4>
 
-                            <!-- Time -->
-                            <p class="small mb-0">
-                                <span class="text-success">●</span> Online
+                            <!-- Created -->
+                            <p class="small mb-0 text-muted">
+                                Created {{ $comic->created_at->diffForHumans() }}
                             </p>
 
                         </div>
                         <div class="col-auto">
 
-                            <!-- Button -->
-                            <a href="#!" class="btn btn-sm btn-white">
-                                Add
+                            <!-- Option -->
+                            <a href="#!" class="btn btn-sm btn-outline-primary">
+                                Manage
                             </a>
 
                         </div>
-                    </div> <!-- / .row -->
+                    </div>
 
                 </li>
-                <li class="list-group-item px-0">
-
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-
-                            <!-- Avatar -->
-                            <a href="profile-posts.html" class="avatar">
-                                <img src="{{ asset('assets/modules/admin/img/avatars/profiles/avatar-5.jpg') }}" alt="..." class="avatar-img rounded-circle">
-                            </a>
-
-                        </div>
-                        <div class="col ml--2">
-
-                            <!-- Title -->
-                            <h4 class="mb-1 name">
-                                <a href="profile-posts.html">Ryu Duke</a>
-                            </h4>
-
-                            <!-- Time -->
-                            <p class="small mb-0">
-                                <span class="text-success">●</span> Online
-                            </p>
-
-                        </div>
-                        <div class="col-auto">
-
-                            <!-- Button -->
-                            <a href="#!" class="btn btn-sm btn-white">
-                                Add
-                            </a>
-
-                        </div>
-                    </div> <!-- / .row -->
-
-                </li>
-                <li class="list-group-item px-0">
-
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-
-                            <!-- Avatar -->
-                            <a href="profile-posts.html" class="avatar">
-                                <img src="{{ asset('assets/modules/admin/img/avatars/profiles/avatar-5.jpg') }}" alt="..." class="avatar-img rounded-circle">
-                            </a>
-
-                        </div>
-                        <div class="col ml--2">
-
-                            <!-- Title -->
-                            <h4 class="mb-1 name">
-                                <a href="profile-posts.html">Glen Rouse</a>
-                            </h4>
-
-                            <!-- Time -->
-                            <p class="small mb-0">
-                                <span class="text-warning">●</span> Busy
-                            </p>
-
-                        </div>
-                        <div class="col-auto">
-
-                            <!-- Button -->
-                            <a href="#!" class="btn btn-sm btn-white">
-                                Add
-                            </a>
-
-                        </div>
-                    </div> <!-- / .row -->
-
-                </li>
-                <li class="list-group-item px-0">
-
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-
-                            <!-- Avatar -->
-                            <a href="profile-posts.html" class="avatar">
-                                <img src="{{ asset('assets/modules/admin/img/avatars/profiles/avatar-5.jpg') }}" alt="..." class="avatar-img rounded-circle">
-                            </a>
-
-                        </div>
-                        <div class="col ml--2">
-
-                            <!-- Title -->
-                            <h4 class="mb-1 name">
-                                <a href="profile-posts.html">Grace Gross</a>
-                            </h4>
-
-                            <!-- Time -->
-                            <p class="small mb-0">
-                                <span class="text-danger">●</span> Offline
-                            </p>
-
-                        </div>
-                        <div class="col-auto">
-
-                            <!-- Button -->
-                            <a href="#!" class="btn btn-sm btn-white">
-                                Add
-                            </a>
-
-                        </div>
-                    </div> <!-- / .row -->
-
-                </li>
+                @endforeach
             </ul>
 
         </div>
 
     </div>
+    @endif
 
 @endsection
 
@@ -208,11 +109,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
     <script type="application/javascript">
-        var options = {
-            valueNames: [ 'name', 'born' ]
+        let options = {
+            valueNames: [ 'name', 'born' ],
+            // page: 12,
+            // pagination: true
         };
 
-        var userList = new List('comics', options);
+        let userList = new List('comics', options);
     </script>
 
 @endsection

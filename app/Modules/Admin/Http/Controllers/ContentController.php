@@ -2,8 +2,7 @@
 
 namespace App\Modules\Admin\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Comic;
 use App\Http\Controllers\Controller;
 
 class ContentController extends Controller
@@ -13,6 +12,9 @@ class ContentController extends Controller
      */
     public function comics()
     {
-        return view('admin::content.comics');
+        $comics = Comic::all();
+
+        return view('admin::content.comics')
+            ->with(compact('comics'));
     }
 }
