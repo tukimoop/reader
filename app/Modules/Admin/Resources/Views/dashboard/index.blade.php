@@ -26,26 +26,35 @@
     </div>
 
     <div class="card">
-        <div class="card-body text-center">
-            <div class="row justify-content-center">
-                <div class="col-12 col-xl-10">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-4 order-lg-2">
 
-                    <img src="{{ asset('assets/modules/admin/img/illustrations/happiness.svg') }}" alt="..." class="img-fluid mt--5 mb-4" style="max-width: 272px;">
+                    <!-- Image -->
+                    <div class="text-center">
+                        <img src="{{ asset('assets/modules/admin/img/illustrations/happiness.svg') }}" alt="..." class="img-fluid mt--5 mt-lg-0 mb-4 mr-md--5" style="max-width: 272px;">
+                    </div>
 
+                </div>
+                <div class="col-12 col-lg-8 px-4 py-3 order-lg-1">
+
+                    <!-- Title -->
                     <h2>
-                        {{ trans('admin::dashboard.getting-started-congratulations') }}
+                        {{ __('admin::dashboard.getting-started-congratulations') }}
                     </h2>
 
+                    <!-- Content -->
                     <p class="text-muted">
-                        {{ trans('admin::dashboard.getting-started-information') }}
+                        {{ __('admin::dashboard.getting-started-information') }}
                     </p>
 
-                    <a href="#" class="btn btn-primary">
-                        {{ trans('admin::dashboard.getting-started-button') }}
+                    <!-- Button -->
+                    <a href="#!" class="btn btn-primary">
+                        {{ __('admin::dashboard.getting-started-button') }}
                     </a>
 
                 </div>
-            </div>
+            </div> <!-- / .row -->
         </div>
     </div>
 

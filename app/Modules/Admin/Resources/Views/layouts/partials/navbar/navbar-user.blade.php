@@ -75,15 +75,22 @@
 
     <!-- Toggle -->
     <a href="#" class="avatar avatar-sm dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="{{ asset('https://avatars2.githubusercontent.com/u/11010491?s=460&v=4') }}" alt="..." class="avatar-img rounded-circle">
+        <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="..." class="avatar-img rounded-circle">
     </a>
 
     <!-- Menu -->
     <div class="dropdown-menu dropdown-menu-right">
-        <a href="profile-posts.html" class="dropdown-item">Profile</a>
-        <a href="settings.html" class="dropdown-item">Settings</a>
+        <a href="#" class="dropdown-item">My Profile</a>
+        <a href="#" class="dropdown-item">Account Settings</a>
         <hr class="dropdown-divider">
-        <a href="sign-in.html" class="dropdown-item">Logout</a>
+        <!-- Logout -->
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
 
 </div>

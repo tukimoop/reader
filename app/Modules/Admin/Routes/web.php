@@ -33,28 +33,39 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
         // Comics
         Route::get('', 'MembersController@index')->name('admin.members.index');
 
+        // User Groups
+        Route::group(['prefix' => 'groups'], function () {
+
+            Route::get('', 'UserGroupsController@index')->name('admin.members.groups.index');
+            Route::get('{role}', 'UserGroupsController@show')->name('admin.members.groups.show');
+
+        });
+
     });
 
     // System
     Route::group(['prefix' => 'system'], function () {
 
-        Route::redirect('/', '/admin/system/general');
+        Route::redirect('/', '/admin/system/settings/general');
 
-        /**
-         * Settings
-         */
+        // Settings
+        Route::group(['prefix' => 'settings'], function () {
 
-        // General
-        Route::get('general', 'SystemController@general')->name('admin.system.general');
-        Route::post('general', 'SystemController@updateGeneral')->name('admin.system.general.update');
+            Route::redirect('/', '/admin/system/settings/general');
 
-        // Security
-        Route::get('security', 'SystemController@security')->name('admin.system.security');
-        Route::post('security', 'SystemController@updateSecurity')->name('admin.system.security.update');
+            // General
+            Route::get('general', 'SystemController@general')->name('admin.system.settings.general');
+            Route::post('general', 'SystemController@updateGeneral')->name('admin.system.settings.general.update');
 
-        // Performance
-        Route::get('performance', 'SystemController@performance')->name('admin.system.performance');
-        Route::post('performance', 'SystemController@updatePerformance')->name('admin.system.performance.update');
+            // Security
+            Route::get('security', 'SystemController@security')->name('admin.system.settings.security');
+            Route::post('security', 'SystemController@updateSecurity')->name('admin.system.settings.security.update');
+
+            // Performance
+            Route::get('performance', 'SystemController@performance')->name('admin.system.settings.performance');
+            Route::post('performance', 'SystemController@updatePerformance')->name('admin.system.settings.performance.update');
+
+        });
 
     });
 });

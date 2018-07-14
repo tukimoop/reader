@@ -5,7 +5,7 @@
 
                 <!-- Pretitle -->
                 <h6 class="header-pretitle">
-                    Members
+                    @yield('sectionTitle')
                 </h6>
 
                 <!-- Title -->

@@ -29,23 +29,23 @@
                 <!-- Nav -->
                 <ul class="nav nav-tabs nav-overflow header-tabs">
                     <li class="nav-item">
-                        <a href="{{ route('admin.system.general') }}" class="nav-link  {{ Route::currentRouteNamed('admin.system.general') ? 'active' : '' }}">
-                            General
+                        <a href="{{ route('admin.system.settings.general') }}" class="nav-link  {{ Route::currentRouteNamed('admin.system.settings.general') ? 'active' : '' }}">
+                            {{ __('admin::system.navigation.general') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.system.security') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.security') ? 'active' : '' }}">
-                            Security
+                        <a href="{{ route('admin.system.settings.security') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.settings.security') ? 'active' : '' }}">
+                            {{ __('admin::system.navigation.security') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.system.performance') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.performance') ? 'active' : '' }}">
-                            Performance
+                        <a href="{{ route('admin.system.settings.performance') }}" class="nav-link {{ Route::currentRouteNamed('admin.system.settings.performance') ? 'active' : '' }}">
+                            {{ __('admin::system.navigation.performance') }}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ Route::currentRouteNamed('admin.system.performance') ? 'active' : '' }}">
-                            Integration
+                        <a href="#" class="nav-link {{ Route::currentRouteNamed('admin.system.settings.integration') ? 'active' : '' }}">
+                            {{ __('admin::system.navigation.integration') }}
                         </a>
                     </li>
                 </ul>

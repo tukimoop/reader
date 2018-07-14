@@ -1,5 +1,7 @@
 @extends('admin::layouts.admin')
 
+@section('sectionTitle', 'Members')
+
 @section('pageTitle', 'Members')
 
 @section('content')

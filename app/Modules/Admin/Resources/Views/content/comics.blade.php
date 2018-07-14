@@ -106,11 +106,9 @@
 
 @section('js')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-
     <script type="application/javascript">
         let options = {
-            valueNames: [ 'name', 'born' ],
+            valueNames: ['name'],
             // page: 12,
             // pagination: true
         };

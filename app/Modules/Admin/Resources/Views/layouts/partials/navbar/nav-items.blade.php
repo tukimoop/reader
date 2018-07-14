@@ -21,9 +21,21 @@
 @endcan
 
 @can('view-settings')
-<li class="nav-item {{ Route::currentRouteNamed('admin.system.*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('admin.system.general') }}">
+<li class="nav-item dropdown {{ Route::currentRouteNamed('admin.system.*') ? 'active' : '' }}">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         System
     </a>
+    <ul class="dropdown-menu" aria-labelledby="topnavDocumentation">
+        <li>
+            <a class="dropdown-item" href="{{ route('admin.system.settings.general') }}">
+                Settings
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                User Groups & Permissions
+            </a>
+        </li>
+    </ul>
 </li>
 @endcan

@@ -10,7 +10,7 @@
     <!-- Flash Messages -->
     @include('admin::layouts.partials.flash')
 
-    <form action="{{ route('admin.system.security.update') }}" method="post">
+    <form action="{{ route('admin.system.settings.security.update') }}" method="post">
         {{ csrf_field() }}
 
         <!-- Minimum Username Length -->
