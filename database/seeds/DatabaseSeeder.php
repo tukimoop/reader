@@ -15,10 +15,13 @@ class DatabaseSeeder extends Seeder
             SettingsTableSeeder::class,
             CountriesTableSeeder::class,
             LanguagesTableSeeder::class,
-            AdministratorSeeder::class,
             AbilitiesTableSeeder::class,
             GenresTableSeeder::class,
-            ComicStatusesTableSeeder::class
+            ComicStatusesTableSeeder::class,
+
+            // Roles
+            AdministratorSeeder::class,
+            ContentManagerSeeder::class
         ]);
     }
 }

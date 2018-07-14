@@ -25,7 +25,9 @@
                 Create
             </button>
             <div class="dropdown-menu">
-                <a href="profile-posts.html" class="dropdown-item">Comic</a>
+                @can('manage-comics')
+                <a href="#" class="dropdown-item">Comic</a>
+                @endcan
             </div>
         </div>
 

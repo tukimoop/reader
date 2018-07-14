@@ -50,7 +50,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @else
-                            @can('access-admin-panel')
+                            @can('access-admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.dashboard.index') }}">{{ __('Admin') }}</a>
                                 </li>
