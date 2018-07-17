@@ -15,7 +15,7 @@ class CreateUserTest extends TestCase
      */
     public function testCreateUser()
     {
-        
+
 
         $this->assertTrue(true);
     }
