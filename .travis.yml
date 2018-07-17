@@ -1,5 +1,7 @@
 language: php
 
+sudo: required
+
 php:
   - 7.1
   - 7.2
@@ -10,7 +12,12 @@ services:
   - mysql
 
 addons:
-  mysql: "5.7"
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
 
 cache:
   directories:
@@ -70,3 +77,5 @@ env:
 
     - MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
     - MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+    - SETTING_STORE=json

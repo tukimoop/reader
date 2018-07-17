@@ -22,7 +22,7 @@ return [
     | Supported: "database", "json"
     |
     */
-	'driver'			=> 'database',
+	'driver'			=> env('SETTING_STORE', 'database'),
 
     /*
     |--------------------------------------------------------------------------
