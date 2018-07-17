@@ -32,7 +32,7 @@ env:
   global:
     - APP_NAME=Lida
     - APP_ENV=local
-    - APP_KEY=base64:cWqL1uSNrHhQxQv02y/VPNP1omrzIOAB0Icdbub9dbo=
+    - APP_KEY=base64:s2D8Wl+t5T7Wnm2RBY9AQSY7Ow/e2aBIAqkdhny1Trk=
     - APP_DEBUG=true
     - APP_URL=http://127.0.0.1:8000
 
