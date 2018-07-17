@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             Route::get('', 'UserGroupsController@index')->name('admin.members.groups.index');
             Route::get('{role}', 'UserGroupsController@show')->name('admin.members.groups.show');
+            Route::post('{role}', 'UserGroupsController@update')->name('admin.members.groups.update');
 
         });
 

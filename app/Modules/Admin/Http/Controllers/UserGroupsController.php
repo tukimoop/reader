@@ -3,6 +3,7 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Silber\Bouncer\Database\Ability;
 use Silber\Bouncer\Database\Role;
 
@@ -41,5 +42,10 @@ class UserGroupsController extends Controller
 
         return view('admin::members.groups.show')
             ->with(compact('role', 'abilities'));
+    }
+
+    public function update(Request $request, Role $role)
+    {
+        dd($request);
     }
 }
