@@ -25,16 +25,20 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
-#script:
-#  - ./vendor/bin/phpunit --coverage-clover ./tests/Logs/clover.xml
+script:
+    - vendor/bin/phpunit --coverage-clover=coverage.xml
 
-install:
-  - composer install
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction --prefer-source --dev
 
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS lida;'
   - php artisan migrate:refresh --seed
   - php artisan serve &
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
 
 env:
   global:
