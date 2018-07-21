@@ -19,6 +19,9 @@ class Comic extends Model
         'created_at', 'updated_at', 'deleted_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function genres()
     {
         return $this->belongsToMany(Genre::class);

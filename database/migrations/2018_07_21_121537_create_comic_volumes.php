@@ -19,6 +19,7 @@ class CreateComicVolumes extends Migration
             $table->string('folder_hash')->unique();
             $table->string('name');
             $table->string('name_native')->nullable();
+            $table->string('thumbnail')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
