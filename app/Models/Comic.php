@@ -50,4 +50,12 @@ class Comic extends Model
     {
         return $this->belongsToMany(Publisher::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function chapters()
+    {
+        return $this->hasMany(ComicChapter::class);
+    }
 }

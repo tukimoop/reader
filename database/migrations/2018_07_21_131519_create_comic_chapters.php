@@ -20,7 +20,7 @@ class CreateComicChapters extends Migration
             $table->string('title_native')->nullable();
             $table->unsignedInteger('number')->comment('The number of this chapter. Used for ordering.');
             $table->date('release_date');
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail_url')->nullable();
             $table->boolean('quiet_release')->default(0)->comment('Determines if this release should be hidden from latest.');
             $table->unsignedInteger('comic_id');
             $table->unsignedInteger('comic_volume_id');

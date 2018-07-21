@@ -24,6 +24,7 @@ class CreateComicsTable extends Migration
             $table->string('cover_url')->nullable();
             $table->unsignedInteger('view_count')->default(0);
             $table->boolean('is_mature')->default(0);
+            $table->boolean('is_visible')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

@@ -16,14 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], function () {
 
     // Dashboard
-    Route::redirect('/', '/admin/dashboard');
+    Route::redirect('', '/admin/dashboard');
     Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard.index');
 
     // Content
     Route::group(['prefix' => 'content'], function () {
 
         // Comics
-        Route::get('comics', 'ContentController@comics')->name('admin.content.comics');
+        Route::group(['prefix' => 'comics'], function () {
+
+            Route::get('', 'Content\ComicsController@index')->name('admin.content.comics');
+
+            Route::get('{comic}', 'Content\ComicsController@show')->name('admin.content.comics.show');
+
+        });
 
     });
 
@@ -47,7 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
     // System
     Route::group(['prefix' => 'system'], function () {
 
-        Route::redirect('/', '/admin/system/settings/general');
+        Route::redirect('', '/admin/system/settings/general');
 
         // Settings
         Route::group(['prefix' => 'settings'], function () {

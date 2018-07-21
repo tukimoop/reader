@@ -18,4 +18,12 @@ class ComicVolume extends Model
     protected $dates = [
         'created_at', 'updated_at', 'deleted_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function chapters()
+    {
+        return $this->hasMany(ComicChapter::class);
+    }
 }
