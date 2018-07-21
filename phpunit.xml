@@ -31,4 +31,7 @@
         <env name="MAIL_DRIVER" value="array"/>
         <env name="SETTING_STORE" value="json"/>
     </php>
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
 </phpunit>
