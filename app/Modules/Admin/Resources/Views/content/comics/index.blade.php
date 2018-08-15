@@ -29,7 +29,7 @@
             </p>
 
             <!-- Button -->
-            <a href="#!" class="btn btn-primary">
+            <a href="{{ route('admin.content.comics.create') }}" class="btn btn-primary">
                 Create Comic
             </a>
 

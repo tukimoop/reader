@@ -49,7 +49,7 @@
                     </p>
 
                     <!-- Button -->
-                    <a href="#!" class="btn btn-primary">
+                    <a href="{{ route('admin.system.settings.general') }}" class="btn btn-primary">
                         {{ __('admin::dashboard.getting-started-button') }}
                     </a>
 

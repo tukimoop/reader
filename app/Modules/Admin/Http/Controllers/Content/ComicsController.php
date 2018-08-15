@@ -3,6 +3,8 @@
 namespace App\Modules\Admin\Http\Controllers\Content;
 
 use App\Models\Comic;
+use App\Models\ComicStatus;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -22,6 +24,18 @@ class ComicsController extends Controller
 
         return view('admin::content.comics.index')
             ->with(compact('comics'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        $comicStatuses = ComicStatus::all();
+        $genres = Genre::all();
+
+        return view('admin::content.comics.create')
+            ->with(compact('comicStatuses', 'genres'));
     }
 
     /**

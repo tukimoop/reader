@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             Route::get('', 'Content\ComicsController@index')->name('admin.content.comics');
 
+            Route::get('create', 'Content\ComicsController@create')->name('admin.content.comics.create');
+
             Route::get('{comic}', 'Content\ComicsController@show')->name('admin.content.comics.show');
 
         });

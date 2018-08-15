@@ -17,9 +17,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Styles -->
-{{--        <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('css/modules/admin/theme.css') }}" rel="stylesheet">
-    </head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" />    </head>
     <body>
         <div id="app">
             <!-- Navigation Bar -->
@@ -38,11 +38,11 @@
         </div>
 
         <!-- Scripts -->
-        {{--<script src="{{ asset('js/app.js') }}"></script>--}}
         <script src="{{ asset('js/modules/admin/theme.js') }}"></script>
         <script src="{{ asset('js/modules/admin/admin.js') }}"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
         @yield('js')
     </body>
