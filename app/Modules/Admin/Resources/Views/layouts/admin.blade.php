@@ -29,7 +29,7 @@
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row justify-content-center">
-                        <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="col-12 col-lg-10 col-xl-8 mt-md-5">
                             @yield('content')
                         </div>
                     </div>

@@ -65,8 +65,8 @@
                         <div class="col-auto">
 
                             <!-- Thumbnail -->
-                            <a href="profile-posts.html" class="avatar">
-                                <img src="{{ asset('assets/modules/admin/img/avatars/profiles/avatar-5.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="avatar">
+                                <img src="{{ Avatar::create($comic->name)->toBase64() }}" alt="..." class="avatar-img rounded-circle">
                             </a>
 
                         </div>
@@ -74,7 +74,15 @@
 
                             <!-- Title -->
                             <h4 class="mb-1 name">
-                                <a href="profile-posts.html">{{ $comic->name }}</a>
+                                <a href="{{ route('admin.content.comics.show', $comic->id) }}">{{ $comic->name }}</a>
+
+                                @if (!$comic->is_visible)
+
+                                    <span class="badge badge-danger ml-2">
+                                    Hidden
+                                </span>
+
+                                @endif
                             </h4>
 
                             <!-- Created -->
@@ -86,7 +94,7 @@
                         <div class="col-auto">
 
                             <!-- Option -->
-                            <a href="#!" class="btn btn-sm btn-outline-primary">
+                            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="btn btn-sm btn-outline-primary">
                                 Manage
                             </a>
 
@@ -113,7 +121,7 @@
             // pagination: true
         };
 
-        let userList = new List('comics', options);
+        let comicsList = new List('comics', options);
     </script>
 
 @endsection

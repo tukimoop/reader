@@ -19,6 +19,9 @@ class Comic extends Model
         'created_at', 'updated_at', 'deleted_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function genres()
     {
         return $this->belongsToMany(Genre::class);
@@ -46,5 +49,13 @@ class Comic extends Model
     public function publishers()
     {
         return $this->belongsToMany(Publisher::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function chapters()
+    {
+        return $this->hasMany(ComicChapter::class);
     }
 }

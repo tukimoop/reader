@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComicsTable extends Migration
+class CreateComicVolumes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,16 @@ class CreateComicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comics', function (Blueprint $table) {
+        Schema::create('comic_volumes', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('folder_hash')->unique();
             $table->string('name');
             $table->string('name_native')->nullable();
-            $table->unsignedInteger('comic_status_id')->default(1);
             $table->string('thumbnail_url')->nullable();
-            $table->string('cover_url')->nullable();
-            $table->unsignedInteger('view_count')->default(0);
-            $table->boolean('is_mature')->default(0);
-            $table->boolean('is_visible')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
-
-            // Foreign Keys
-            $table->foreign('comic_status_id')->references('id')->on('comic_statuses');
         });
     }
 
@@ -41,6 +33,6 @@ class CreateComicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comics');
+        Schema::dropIfExists('comic_volumes');
     }
 }
