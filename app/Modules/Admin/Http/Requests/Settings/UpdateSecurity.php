@@ -18,7 +18,7 @@ class UpdateSecurity extends FormRequest
             return true;
         }
 
-        return true;
+        return false;
     }
 
     /**

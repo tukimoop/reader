@@ -31,7 +31,8 @@
     <div class="card">
         <div class="card-body">
 
-            <form method="post" action="#">
+            <form method="post" action="{{ route('admin.content.comics.store') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <!-- Comic Information -->
                     <div class="col-6">
@@ -73,7 +74,7 @@
 
                                 <!-- Toggle -->
                                 <div class="custom-control custom-checkbox-toggle">
-                                    <input type="checkbox" class="custom-control-input" name="is_mature" id="is_mature">
+                                    <input type="checkbox" class="custom-control-input" name="is_mature" id="is_mature" value="1">
                                     <label class="custom-control-label" for="is_mature"></label>
                                 </div>
 
@@ -90,7 +91,7 @@
 
                                 <!-- Toggle -->
                                 <div class="custom-control custom-checkbox-toggle">
-                                    <input type="checkbox" class="custom-control-input" name="is_visible" id="is_visible">
+                                    <input type="checkbox" class="custom-control-input" name="is_visible" id="is_visible" value="1">
                                     <label class="custom-control-label" for="is_visible"></label>
                                 </div>
 
@@ -108,7 +109,14 @@
 
                     <!-- Images -->
                     <div class="col-6">
-                        123
+                        <div class="form-group">
+                            <label for="thumbnail">Thumbnail</label>
+                            <input type="file" class="form-control" name="thumbnail" id="thumbnail" aria-describedby="thumbnail">
+                        </div>
+                        <div class="form-group">
+                            <label for="cover">Cover</label>
+                            <input type="file" class="form-control" name="cover" id="cover" aria-describedby="cover">
+                        </div>
                     </div>
                 </div>
 

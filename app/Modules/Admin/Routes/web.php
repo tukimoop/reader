@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             Route::get('{comic}', 'Content\ComicsController@show')->name('admin.content.comics.show');
 
+            Route::post('', 'Content\ComicsController@store')->name('admin.content.comics.store');
+
         });
 
     });

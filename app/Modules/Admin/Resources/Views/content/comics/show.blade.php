@@ -26,12 +26,12 @@
             </div>
         </div>
 
-        <img src="https://images5.alphacoders.com/547/547502.jpg" alt="..." class="card-img-top" height="200" width="600">
+        <img src="{{ $comic->cover_url }}" alt="Cover" class="card-img-top" height="200" width="600">
 
         <div class="card-body text-center">
 
             <a href="profile-posts.html" class="avatar avatar-xl card-avatar card-avatar-top">
-                <img src="{{ Avatar::create($comic->name)->toBase64() }}" class="avatar-img rounded-circle border border-white" alt="...">
+                <img src="{{ $comic->thumbnail_url }}" class="avatar-img rounded-circle border border-white" alt="Avatar">
             </a>
 
             <h2 class="card-title">
@@ -45,12 +45,11 @@
             </p>
 
             <p class="card-text">
-              <span class="badge badge-soft-secondary">
-                Harem
-              </span>
-                        <span class="badge badge-soft-secondary">
-                Romance
-              </span>
+                @foreach ($comic->genres as $genre)
+                <span class="badge badge-soft-secondary">
+                    {{ $genre->name }}
+                </span>
+                @endforeach
             </p>
 
             <hr>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Webpatser\Uuid\Uuid;
 
 class Comic extends Model
 {
@@ -57,5 +58,10 @@ class Comic extends Model
     public function chapters()
     {
         return $this->hasMany(ComicChapter::class);
+    }
+
+    public static function makeFolderHash($comicName)
+    {
+        return str_slug($comicName, '-') . '_' . Uuid::generate()->string;
     }
 }

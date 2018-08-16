@@ -66,7 +66,7 @@
 
                             <!-- Thumbnail -->
                             <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="avatar">
-                                <img src="{{ Avatar::create($comic->name)->toBase64() }}" alt="..." class="avatar-img rounded-circle">
+                                <img src="{{ $comic->thumbnail_url }}" alt="..." class="avatar-img rounded-circle">
                             </a>
 
                         </div>
