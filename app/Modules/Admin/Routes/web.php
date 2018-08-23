@@ -35,6 +35,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
         });
 
+        // Volumes
+        Route::group(['prefix' => 'volumes'], function () {
+
+            Route::post('', 'Content\VolumesController@store')->name('admin.content.volumes.create');
+
+            Route::delete('{volume}', 'Content\VolumesController@destroy')->name('admin.content.volumes.destroy');
+
+        });
+
     });
 
     // Content

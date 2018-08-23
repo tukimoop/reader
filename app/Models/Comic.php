@@ -60,6 +60,11 @@ class Comic extends Model
         return $this->hasMany(ComicChapter::class);
     }
 
+    public function volumes()
+    {
+        return $this->hasMany(ComicVolume::class);
+    }
+
     public static function makeFolderHash($comicName)
     {
         return str_slug($comicName, '-') . '_' . Uuid::generate()->string;

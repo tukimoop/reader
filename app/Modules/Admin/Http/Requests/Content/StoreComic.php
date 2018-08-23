@@ -31,6 +31,7 @@ class StoreComic extends FormRequest
         return [
             'name' => 'required|string|min:1|max:255',
             'name_native' => 'required|string|min:1|max:255',
+            'description' => 'string|min:1|max:60000',
             'comic_status_id' => 'required|integer|exists:comic_statuses,id',
             'is_mature' => 'boolean',
             'is_visible' => 'boolean',

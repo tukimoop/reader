@@ -45,7 +45,7 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        $comic->load('chapters.volume');
+        $comic->load('chapters.volumes');
 
         return view('admin::content.comics.show')
             ->with(compact('comic'));
@@ -76,6 +76,7 @@ class ComicsController extends Controller
             'folder_hash' => $folderHash,
             'name' => $request->input('name'),
             'name_native' => $request->input('name_native'),
+            'description' => $request->input('description'),
             'comic_status_id' => $request->input('comic_status_id'),
             'thumbnail_url' => Storage::url($thumbnailUpload),
             'cover_url' => Storage::url($coverUpload),
