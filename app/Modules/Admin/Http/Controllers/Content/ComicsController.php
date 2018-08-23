@@ -5,6 +5,7 @@ namespace App\Modules\Admin\Http\Controllers\Content;
 use App\Models\Comic;
 use App\Models\ComicStatus;
 use App\Models\Genre;
+use App\Models\Language;
 use App\Modules\Admin\Http\Requests\Content\StoreComic;
 use Illuminate\Http\Request;
 
@@ -46,9 +47,10 @@ class ComicsController extends Controller
     public function show(Comic $comic)
     {
         $comic->load('chapters.volumes');
+        $languages = Language::all();
 
         return view('admin::content.comics.show')
-            ->with(compact('comic'));
+            ->with(compact('comic', 'languages'));
     }
 
     /**

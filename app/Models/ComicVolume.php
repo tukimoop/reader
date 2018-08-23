@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Webpatser\Uuid\Uuid;
 
 class ComicVolume extends Model
 {
@@ -25,5 +26,31 @@ class ComicVolume extends Model
     public function chapters()
     {
         return $this->hasMany(ComicChapter::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function comic()
+    {
+        return $this->belongsTo(Comic::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
+    /**
+     * @param $volumeNumber
+     * @return string
+     * @throws \Exception
+     */
+    public static function makeFolderHash($volumeNumber)
+    {
+        return $volumeNumber . '_' . Uuid::generate()->string;
     }
 }

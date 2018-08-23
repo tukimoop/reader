@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        Auth::user()->assign('admin');
+        Auth::user()->assign('admin');
 //        Auth::user()->assign('content-manager');
 
         return view('home');

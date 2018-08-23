@@ -18,7 +18,14 @@ class VolumesController extends Controller
      */
     public function store(Request $request)
     {
-        $saveVolume = ComicVolume::create($request->all());
+        $saveVolume = ComicVolume::create([
+            'folder_hash' => ComicVolume::makeFolderHash($request->input('order')),
+            'name' => $request->input('name'),
+            'name_native' => $request->input('name_native'),
+            'order' => $request->input('order'),
+            'comic_id' => $request->input('comic_id'),
+            'language_id' => $request->input('language_id')
+        ]);
 
         if ($saveVolume) {
             flash('Successfully created volume.')->success();

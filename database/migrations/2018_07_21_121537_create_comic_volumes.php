@@ -20,9 +20,16 @@ class CreateComicVolumes extends Migration
             $table->string('name');
             $table->string('name_native')->nullable();
             $table->string('thumbnail_url')->nullable();
+            $table->unsignedInteger('order')->default(1);
+            $table->unsignedInteger('comic_id');
+            $table->unsignedInteger('language_id');
 
             $table->timestamps();
             $table->softDeletes();
+
+            // Foreign Keys
+            $table->foreign('comic_id')->references('id')->on('comics');
+            $table->foreign('language_id')->references('id')->on('languages');
         });
     }
 

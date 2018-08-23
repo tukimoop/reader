@@ -26,7 +26,7 @@
             </button>
             <div class="dropdown-menu">
                 @can('manage-comics')
-                <a href="#" class="dropdown-item">Comic</a>
+                <a href="{{ route('admin.content.comics.create') }}" class="dropdown-item">Comic</a>
                 @endcan
             </div>
         </div>

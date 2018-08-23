@@ -47,6 +47,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="name_native">Description</label>
+                            <textarea class="form-control" placeholder="What is this comic about?" maxlength="65000"></textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label for="comic_status_id">Status</label>
                             <select class="form-control" name="comic_status_id" required>
                                 @foreach ($comicStatuses as $status)
@@ -54,7 +59,6 @@
                                 @endforeach
                             </select>
                         </div>
-
 
                         <div class="form-group">
                             <label for="comic_status_id">Genres</label>
