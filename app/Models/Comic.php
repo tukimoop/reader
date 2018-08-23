@@ -62,7 +62,7 @@ class Comic extends Model
 
     public function volumes()
     {
-        return $this->hasMany(ComicVolume::class);
+        return $this->hasMany(ComicVolume::class)->orderBy('order', 'asc');
     }
 
     public static function makeFolderHash($comicName)
