@@ -33,6 +33,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             Route::post('', 'Content\ComicsController@store')->name('admin.content.comics.store');
 
+
+            // Chapters
+            Route::get('{comic}/create', 'Content\ChaptersController@create')->name('admin.content.comics.chapters.create');
+
+
         });
 
         // Volumes
@@ -56,7 +61,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
         Route::group(['prefix' => 'groups'], function () {
 
             Route::get('', 'UserGroupsController@index')->name('admin.members.groups.index');
+
             Route::get('{role}', 'UserGroupsController@show')->name('admin.members.groups.show');
+
             Route::post('{role}', 'UserGroupsController@update')->name('admin.members.groups.update');
 
         });
@@ -75,14 +82,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             // General
             Route::get('general', 'SystemController@general')->name('admin.system.settings.general');
+
             Route::post('general', 'SystemController@updateGeneral')->name('admin.system.settings.general.update');
 
             // Security
             Route::get('security', 'SystemController@security')->name('admin.system.settings.security');
+
             Route::post('security', 'SystemController@updateSecurity')->name('admin.system.settings.security.update');
 
             // Performance
             Route::get('performance', 'SystemController@performance')->name('admin.system.settings.performance');
+
             Route::post('performance', 'SystemController@updatePerformance')->name('admin.system.settings.performance.update');
 
         });

@@ -16,8 +16,8 @@ class CreateComicChapters extends Migration
         Schema::create('comic_chapters', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('title');
-            $table->string('title_native')->nullable();
+            $table->string('name');
+            $table->string('name_native')->nullable();
             $table->unsignedInteger('number')->comment('The number of this chapter. Used for ordering.');
             $table->date('release_date');
             $table->string('thumbnail_url')->nullable();

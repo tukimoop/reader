@@ -101,7 +101,7 @@
                     <div class="card-body text-muted">
                         No chapters have been made for this volume.
 
-                        <a href="#">Click here to create a chapter.</a>
+                        <a href="{{ route('admin.content.comics.chapters.create', $comic->id) }}">Click here to create a chapter.</a>
                     </div>
                 @endif
 
