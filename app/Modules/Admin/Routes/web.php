@@ -37,6 +37,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
             // Chapters
             Route::get('{comic}/create', 'Content\ChaptersController@create')->name('admin.content.comics.chapters.create');
 
+            Route::post('{comic}/create', 'Content\ChaptersController@store')->name('admin.content.comics.chapters.store');
+
+            Route::get('{comic}/{chapter}', 'Content\ChaptersController@show')->name('admin.content.comics.chapters.show');
+
+            Route::post('{comic}/{chapter}', 'Content\ChaptersController@uploadImage')->name('admin.content.comics.chapters.upload');
 
         });
 

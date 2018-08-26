@@ -15,13 +15,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="#!" class="dropdown-item">
-                    Action
-                </a>
-                <a href="#!" class="dropdown-item">
-                    Another action
-                </a>
-                <a href="#!" class="dropdown-item">
-                    Something else here
+                    Delete Comic
                 </a>
             </div>
         </div>
@@ -30,7 +24,7 @@
 
         <div class="card-body text-center">
 
-            <a href="profile-posts.html" class="avatar avatar-xl card-avatar card-avatar-top">
+            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="avatar avatar-xl card-avatar card-avatar-top">
                 <img src="{{ $comic->thumbnail_url }}" class="avatar-img rounded-circle border border-white" alt="Avatar">
             </a>
 
@@ -110,18 +104,26 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Release Date</th>
+                            <th scope="col">Visibility</th>
+                            <th scope="col">Quiet Release</th>
+                            <th scope="col"><!-- Options --></th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($volume->chapters as $chapter)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">{{ $chapter->number }}</th>
+                            <td>{{ $chapter->name }}</td>
+                            <td>{{ $chapter->release_date }}</td>
+                            <td>{{ ($chapter->is_visible) ? 'Visible' : 'Hidden'  }}</td>
+                            <td>{{ ($chapter->quiet_release) ? 'Yes' : 'No'  }}</td>
+                            <td>
+                                <a href="{{ route('admin.content.comics.chapters.show', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}">Manage</a>
+                            </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 @endif
@@ -151,7 +153,7 @@
                     <!-- Native Name -->
                     <div class="form-group">
                         <label for="name">Native Name</label>
-                        <input type="text" class="form-control" name="name_native" placeholder="The original name (native)." required>
+                        <input type="text" class="form-control" name="name_native" placeholder="The original name (native).">
                     </div>
                     <!-- Order -->
                     <div class="form-group">

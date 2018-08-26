@@ -1,4 +1,4 @@
-<div class="header mt-md-5">
+<div class="header">
     <div class="header-body">
         <div class="row align-items-center">
             <div class="col">
@@ -17,9 +17,9 @@
             <div class="col-auto">
 
                 <!-- Button -->
-                <a href="#!" class="btn btn-outline-primary">
-                    Manage Modules
-                </a>
+                {{--<a href="#!" class="btn btn-outline-primary">--}}
+                    {{--Manage Modules--}}
+                {{--</a>--}}
 
             </div>
         </div> <!-- / .row -->

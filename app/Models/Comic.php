@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * @property mixed folder_hash
+ * @property mixed id
+ */
 class Comic extends Model
 {
 

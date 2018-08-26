@@ -3,15 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-/**
- * @property mixed folder_hash
- * @property mixed name
- */
-class ComicChapter extends Model
+class ComicChapterImage extends Model
 {
-    use Notifiable;
 
     /**
      * @var array
@@ -28,16 +22,16 @@ class ComicChapter extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function volume()
+    public function comic()
     {
-        return $this->belongsTo(ComicVolume::class, 'comic_volume_id', 'id');
+        return $this->belongsTo(Comic::class);
     }
 
     /**
-     * @return string
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function routeNotificationForWebhook()
+    public function chapter()
     {
-        return env('DISCORD_WEBHOOK');
+        return $this->belongsTo(ComicChapter::class);
     }
 }

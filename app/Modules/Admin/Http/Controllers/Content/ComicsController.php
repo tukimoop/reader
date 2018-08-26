@@ -46,7 +46,7 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        $comic->load('chapters.volumes');
+        $comic->load('chapters.volume');
         $languages = Language::all();
 
         return view('admin::content.comics.show')
