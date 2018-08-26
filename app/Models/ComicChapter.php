@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 /**
  * @property mixed folder_hash
  * @property mixed name
+ * @property mixed number
+ * @property mixed slug
  */
 class ComicChapter extends Model
 {

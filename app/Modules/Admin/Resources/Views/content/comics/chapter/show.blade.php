@@ -29,6 +29,10 @@
                         Back to {{ $comic->name }}
                     </a>
 
+                    <a href="{{ route('admin.content.comics.chapters.announce', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}" class="btn btn-outline-success">
+                        Announce Chapter {{ $chapter->number }}
+                    </a>
+
                 </div>
             </div> <!-- / .row -->
         </div>

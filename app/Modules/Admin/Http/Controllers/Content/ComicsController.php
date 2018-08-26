@@ -22,7 +22,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comic::select('id', 'name', 'created_at', 'is_visible', 'thumbnail_url')->get();
+        $comics = Comic::select('id', 'name', 'created_at', 'is_visible', 'thumbnail_url')
+            ->get();
 
         return view('admin::content.comics.index')
             ->with(compact('comics'));
@@ -62,12 +63,8 @@ class ComicsController extends Controller
     {
         $folderHash = Comic::makeFolderHash($request->input('name'));
         $comicPath = "public/comics/{$folderHash}";
-        $thumbnailUpload = $request->file('thumbnail')->store($comicPath . '/thumbnails');
-        $coverUpload = $request->file('cover')->store($comicPath . '/covers');
-
-        // Set visibility of both thumbnail and cover
-        Storage::setVisibility($thumbnailUpload, 'public');
-        Storage::setVisibility($coverUpload, 'public');
+        $thumbnailUpload = $request->file('thumbnail')->storePublicly($comicPath . '/thumbnails');
+        $coverUpload = $request->file('cover')->storePublicly($comicPath . '/covers');
 
         // Only use the UUID, just in case the comic name is really long.
         if (strlen($folderHash) > 255) {
@@ -78,6 +75,7 @@ class ComicsController extends Controller
             'folder_hash' => $folderHash,
             'name' => $request->input('name'),
             'name_native' => $request->input('name_native'),
+            'slug' => str_slug($request->input('name')),
             'description' => $request->input('description'),
             'comic_status_id' => $request->input('comic_status_id'),
             'thumbnail_url' => Storage::url($thumbnailUpload),

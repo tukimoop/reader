@@ -7,6 +7,7 @@ use App\Models\ComicChapter;
 use App\Models\ComicChapterImage;
 use App\Models\ComicVolume;
 use App\Notifications\DiscordAnnouncement;
+use DiscordWebhooks\Client;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -103,10 +104,21 @@ class ChaptersController extends Controller
 
     /**
      * @param Request $request
+     * @param Comic $comic
      * @param ComicChapter $chapter
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function announce(Request $request, ComicChapter $chapter)
+    public function announce(Request $request, Comic $comic, ComicChapter $chapter)
     {
-        $chapter->notify(new DiscordAnnouncement($chapter));
+        $webhook = new Client(env('DISCORD_WEBHOOK'));
+
+        $message = $comic->name . " Chapter " . $chapter->number . " is out on Psycho Play.";
+
+        $webhook->message($message)->send();
+
+        flash('Successfully sent Discord announcement.')->success();
+
+        return redirect()->back();
     }
 }

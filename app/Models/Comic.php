@@ -8,6 +8,7 @@ use Webpatser\Uuid\Uuid;
 /**
  * @property mixed folder_hash
  * @property mixed id
+ * @property mixed name
  */
 class Comic extends Model
 {
@@ -71,6 +72,6 @@ class Comic extends Model
 
     public static function makeFolderHash($comicName)
     {
-        return str_slug($comicName, '-') . '_' . Uuid::generate()->string;
+        return str_slug($comicName, '_') . '_' . Uuid::generate()->string;
     }
 }
