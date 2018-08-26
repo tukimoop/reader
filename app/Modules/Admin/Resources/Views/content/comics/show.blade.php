@@ -58,6 +58,10 @@
                 </div>
                 <div class="col-auto">
 
+                    <a href="{{ route('admin.content.comics.chapters.create', $comic->id) }}" class="btn btn-sm btn-success">
+                        Create a Chapter
+                    </a>
+
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createVolumeModal">
                         Create a Volume
                     </button>

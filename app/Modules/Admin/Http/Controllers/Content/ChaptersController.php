@@ -71,6 +71,32 @@ class ChaptersController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param Comic $comic
+     * @param ComicChapter $chapter
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(Request $request, Comic $comic, ComicChapter $chapter)
+    {
+        // Delete all images for this chapter
+        $path = "public/comics/{$comic->folder_hash}/chapters/{$chapter->folder_hash}";
+        $deleteImages = Storage::deleteDirectory($path);
+
+        if (!$deleteImages) {
+            flash('Unable to delete chapters image directory.')->error();
+            return redirect()->back();
+        }
+
+        $chapter->images()->delete();
+        $chapter->forceDelete();
+
+        flash('Successfully deleted chapter')->success();
+
+        return redirect()->route('admin.content.comics.show', $comic->id);
+    }
+
+    /**
      * Handles uploading from the admin panel dropzone input.
      *
      * @param Request $request

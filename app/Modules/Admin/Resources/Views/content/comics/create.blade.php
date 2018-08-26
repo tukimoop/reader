@@ -48,7 +48,7 @@
 
                         <div class="form-group">
                             <label for="name_native">Description</label>
-                            <textarea class="form-control" placeholder="What is this comic about?" maxlength="65000"></textarea>
+                            <textarea class="form-control" placeholder="What is this comic about?" maxlength="65000" name="description"></textarea>
                         </div>
 
                         <div class="form-group">

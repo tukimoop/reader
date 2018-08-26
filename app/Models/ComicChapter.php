@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
 /**
  * @property mixed folder_hash
@@ -13,7 +12,6 @@ use Illuminate\Notifications\Notifiable;
  */
 class ComicChapter extends Model
 {
-    use Notifiable;
 
     /**
      * @var array
@@ -36,10 +34,10 @@ class ComicChapter extends Model
     }
 
     /**
-     * @return string
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function routeNotificationForWebhook()
+    public function images()
     {
-        return env('DISCORD_WEBHOOK');
+        return $this->hasMany(ComicChapterImage::class);
     }
 }

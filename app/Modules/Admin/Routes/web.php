@@ -43,7 +43,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
 
             Route::post('{comic}/{chapter}', 'Content\ChaptersController@uploadImage')->name('admin.content.comics.chapters.upload');
 
-            Route::get('{comic}/{chapter}/announce', 'Content\ChaptersController@announce')->name('admin.content.comics.chapters.announce');
+            Route::post('{comic}/{chapter}/announce', 'Content\ChaptersController@announce')->name('admin.content.comics.chapters.announce');
+
+            Route::delete('{comic}/{chapter}', 'Content\ChaptersController@destroy')->name('admin.content.comics.chapters.destroy');
 
         });
 
