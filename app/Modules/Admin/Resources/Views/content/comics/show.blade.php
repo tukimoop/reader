@@ -159,7 +159,7 @@
                     <!-- Name -->
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name of the volume" required>
+                        <input type="text" class="form-control" name="name" placeholder="Name of the volume">
                     </div>
                     <!-- Native Name -->
                     <div class="form-group">

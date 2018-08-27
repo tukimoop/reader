@@ -38,7 +38,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name of the chapter" required>
+                            <input type="text" class="form-control" name="name" placeholder="Name of the chapter">
                         </div>
 
                         <div class="form-group">
