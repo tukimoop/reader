@@ -53,7 +53,7 @@ class ComicsController extends Controller
 
         $images = $currentChapter->images()->orderBy('image_url')->get();
 
-        dd($currentChapter);
+//        dd($images);
 
         return view('comics.read')
             ->with(compact('comic', 'volume', 'currentChapter', 'images'));

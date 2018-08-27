@@ -1,5 +1,5 @@
 <!-- Main navbar -->
-<div class="navbar navbar-expand-md navbar-dark bg-black">
+<div class="navbar navbar-expand-md navbar-dark bg-black navbar">
     <div class="container">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
