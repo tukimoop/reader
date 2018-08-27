@@ -16,10 +16,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()) {
-            Auth::user()->assign('admin');
-        }
-
         $latest = ComicChapter::where('quiet_release', false)
             ->where('is_visible', true)
             ->orderByDesc('release_date')
