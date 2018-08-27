@@ -12,7 +12,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card">
                     <div class="card-img-actions mx-1 mt-1">
-                        <img class="card-img img-fluid" src="https://cdn.discordapp.com/attachments/371771054940487686/483650043656667143/hit_mssss.jpg" alt="">
+                        <img class="card-img img-fluid" src="{{ $chapter->volume->comic->thumbnail_url }}" alt="">
                         <div class="card-img-actions-overlay card-img">
                             <a href="{{ route('reader.comics.show', $chapter->volume->comic->slug) }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
                                 <i class="icon-book3"></i>

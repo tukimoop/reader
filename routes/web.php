@@ -20,8 +20,8 @@ Route::get('/', 'HomeController@index')->name('reader.index');
 
 Route::get('/latest', 'HomeController@latest')->name('reader.latest');
 
-Route::get('/comics', 'HomeController@latest')->name('reader.comics');
+Route::get('/comics', 'ComicsController@index')->name('reader.comics');
 
-Route::get('/comic/{slug}', 'HomeController@latest')->name('reader.comics.show');
+Route::get('/comic/{comic}', 'ComicsController@show')->name('reader.comics.show');
 
-Route::get('/read/{slug}', 'HomeController@latest')->name('reader.comics.chapter.show');
+Route::get('/read/{comic}/{volume}/{chapter}', 'ComicsController@read')->name('reader.comics.chapter.show');
