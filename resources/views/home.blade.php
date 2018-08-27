@@ -14,13 +14,13 @@
 
     <h4>Latest</h4>
 
-    <div class="row">
+    @if ($latest->isEmpty())
+        <div class="alert alert-danger">
+            There are no chapters posted just yet.
+        </div>
+    @endif
 
-        @if ($latest->isEmpty())
-            <div class="alert alert-danger">
-                There are chapters posted yet.
-            </div>
-        @endif
+    <div class="row">
 
         @foreach ($latest as $chapter)
             <div class="col-lg-3 col-sm-6">
