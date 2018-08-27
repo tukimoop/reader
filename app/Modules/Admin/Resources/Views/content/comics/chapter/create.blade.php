@@ -31,7 +31,7 @@
     <div class="card">
         <div class="card-body">
 
-            <form method="post" action="{{ route('admin.content.comics.chapters.store', $comic->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('admin.content.comics.chapters.store', ['comic' => $comic->slug]) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <!-- Comic Information -->
@@ -116,7 +116,7 @@
                     </div>
                 </div>
 
-                <a class="btn btn-secondary float-left" href="{{ route('admin.content.comics.show', $comic->id) }}">Back to {{ $comic->name }}</a>
+                <a class="btn btn-secondary float-left" href="{{ route('admin.content.comics.show', ['comic' => $comic->slug]) }}">Back to {{ $comic->name }}</a>
                 <button type="submit" class="btn btn-primary float-right">Create Chapter</button>
             </form>
 

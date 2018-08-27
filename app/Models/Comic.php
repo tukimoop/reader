@@ -67,11 +67,19 @@ class Comic extends Model
         return $this->hasMany(ComicChapter::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function volumes()
     {
         return $this->hasMany(ComicVolume::class)->orderBy('order', 'asc');
     }
 
+    /**
+     * @param $comicName
+     * @return string
+     * @throws \Exception
+     */
     public static function makeFolderHash($comicName)
     {
         return str_slug($comicName, '_') . '_' . Uuid::generate()->string;

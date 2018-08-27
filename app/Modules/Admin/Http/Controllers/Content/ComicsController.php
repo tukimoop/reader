@@ -23,8 +23,7 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comic::select('id', 'name', 'created_at', 'is_visible', 'thumbnail_url')
-            ->get();
+        $comics = Comic::all();
 
         return view('admin::content.comics.index')
             ->with(compact('comics'));

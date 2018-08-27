@@ -24,4 +24,4 @@ Route::get('/comics', 'ComicsController@index')->name('reader.comics');
 
 Route::get('/comic/{comic}', 'ComicsController@show')->name('reader.comics.show');
 
-Route::get('/read/{comic}/{volume}/{chapter}', 'ComicsController@read')->name('reader.comics.chapter.show');
+Route::get('/read/{comic}/{language}/{volume}/{chapter}', 'ComicsController@read')->name('reader.comics.chapter.show');

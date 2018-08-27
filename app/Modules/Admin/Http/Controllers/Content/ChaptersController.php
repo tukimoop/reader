@@ -140,8 +140,13 @@ class ChaptersController extends Controller
         $webhook = new Client(env('DISCORD_WEBHOOK'));
         $websiteName = setting('general.site.name');
 
-        $message = $comic->name . ' Chapter ' . $chapter->number . " is now available on {$websiteName}.";
-        $url = env('APP_URL') . '/comics/' . $comic->slug . '/' . $chapter->number;
+        $message = $comic->name . ' Volume' . $chapter->volume->order . ' Chapter ' . $chapter->number . " is now available on {$websiteName}.";
+        $url = route('reader.comics.chapter.show', [
+            'comic' => $comic->slug,
+            'language' => $chapter->volume->language->short_code,
+            'volume' => $chapter->volume->order,
+            'chapter' => $chapter->number
+        ]);
 
         $webhook->message('@here')->send();
         $webhook->message($message)->send();

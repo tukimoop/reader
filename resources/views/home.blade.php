@@ -4,6 +4,14 @@
 
 @section('content')
 
+    <div class="alert alert-info">
+        Hello readers, <br><br>
+
+        We are currently in the process of making some major modification to our site. You may have noticed the redesigned comic pages and the removal of the comic search. While these features have been
+        temporarily removed, they will be added back over the next few days. The current website design is completely temporarily and we will be moving to a completely custom design (in a dark theme)
+        within the next few months. Thanks for sticking with us and making this possible!
+    </div>
+
     <h4>Latest</h4>
 
     <div class="row">
@@ -23,13 +31,13 @@
                 <div class="card-body">
                     <div class="d-flex align-items-start flex-nowrap">
                         <div>
-                            <h6 class="font-weight-semibold mr-2">{{ $chapter->volume->comic->name }}</h6>
+                            <a href="{{ route('reader.comics.show', $chapter->volume->comic->slug) }}" class="text-default font-weight-semibold h6">{{ $chapter->volume->comic->name }}</a>
                             <span>Released {{ $chapter->release_date->diffForHumans() }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="{{ env('APP_URL') }}/read/{{ $chapter->volume->comic->slug }}/{{ $chapter->volume->order }}/{{ $chapter->number }}" class="btn btn-default btn-block">Read Chapter {{ $chapter->number }}</a>
+                    <a href="{{ route('reader.comics.chapter.show', ['comic' => $chapter->volume->comic->slug, 'language' => $chapter->volume->language->short_code, 'volume' => $chapter->volume->order, 'chapter' => $chapter->number]) }}" class="btn btn-default btn-block">Read Chapter {{ $chapter->number }}</a>
                 </div>
             </div>
         </div>

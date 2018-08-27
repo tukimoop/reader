@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed name
  * @property mixed number
  * @property ComicChapterImage images
+ * @property ComicVolume volume
  */
 class ComicChapter extends Model
 {
@@ -38,6 +39,6 @@ class ComicChapter extends Model
      */
     public function images()
     {
-        return $this->hasMany(ComicChapterImage::class);
+        return $this->hasMany(ComicChapterImage::class, 'comic_chapter_id', 'id');
     }
 }

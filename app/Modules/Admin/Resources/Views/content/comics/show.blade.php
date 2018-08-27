@@ -18,7 +18,7 @@
                     Delete Comic
                 </a>
 
-                <form id="delete-form" action="{{ route('admin.content.comics.destroy', $comic->id) }}" method="post" style="display: none;">
+                <form id="delete-form" action="{{ route('admin.content.comics.destroy', ['comic' => $comic->slug]) }}" method="post" style="display: none;">
                     @method('delete')
                     @csrf
                 </form>
@@ -29,12 +29,12 @@
 
         <div class="card-body text-center">
 
-            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="avatar avatar-xl card-avatar card-avatar-top">
+            <a href="{{ route('admin.content.comics.show', ['comic' => $comic->slug]) }}" class="avatar avatar-xl card-avatar card-avatar-top">
                 <img src="{{ $comic->thumbnail_url }}" class="avatar-img rounded-circle border border-white" alt="Avatar">
             </a>
 
             <h2 class="card-title">
-                <a href="{{ route('admin.content.comics.show', $comic->id) }}">{{ $comic->name }}</a>
+                <a href="{{ route('admin.content.comics.show', ['comic' => $comic->slug]) }}">{{ $comic->name }}</a>
             </h2>
 
             <p class="card-text text-muted">
@@ -64,7 +64,7 @@
                 <div class="col-auto">
 
                     @if ($comic->volumes->isNotEmpty())
-                    <a href="{{ route('admin.content.comics.chapters.create', $comic->id) }}" class="btn btn-sm btn-success">
+                    <a href="{{ route('admin.content.comics.chapters.create', ['comic' => $comic->slug]) }}" class="btn btn-sm btn-success">
                         Create a Chapter
                     </a>
                     @endif
@@ -106,7 +106,7 @@
                     <div class="card-body text-muted">
                         No chapters have been made for this volume.
 
-                        <a href="{{ route('admin.content.comics.chapters.create', $comic->id) }}">Click here to create a chapter.</a>
+                        <a href="{{ route('admin.content.comics.chapters.create', ['comic' => $comic->slug]) }}">Click here to create a chapter.</a>
                     </div>
                 @endif
 
@@ -131,7 +131,7 @@
                             <td>{{ ($chapter->is_visible) ? 'Visible' : 'Hidden'  }}</td>
                             <td>{{ ($chapter->quiet_release) ? 'Yes' : 'No'  }}</td>
                             <td>
-                                <a href="{{ route('admin.content.comics.chapters.show', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}">Manage</a>
+                                <a href="{{ route('admin.content.comics.chapters.show', ['comic' => $comic->slug, 'chapter' => $chapter->id]) }}">Manage</a>
                             </td>
                         </tr>
                         @endforeach

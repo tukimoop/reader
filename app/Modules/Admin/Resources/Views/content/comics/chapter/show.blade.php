@@ -25,12 +25,12 @@
                 <div class="col-auto">
 
                     <!-- Back to Comic Overview -->
-                    <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="btn btn-outline-primary">
+                    <a href="{{ route('admin.content.comics.show', $comic->slug) }}" class="btn btn-outline-primary">
                         Back to {{ $comic->name }}
                     </a>
 
                     <!-- Announce on Discord -->
-                    <a href="{{ route('admin.content.comics.chapters.announce', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}" class="btn btn-outline-success">
+                    <a href="{{ route('admin.content.comics.chapters.announce', ['comic' => $comic->slug, 'chapter' => $chapter->id]) }}" class="btn btn-outline-success">
                         Announce Chapter {{ $chapter->number }}
                     </a>
 
@@ -38,7 +38,7 @@
                     <a href="#" class="btn btn-outline-danger" onclick="event.preventDefault();document.getElementById('delete-form').submit();">
                         Delete
                     </a>
-                    <form id="delete-form" action="{{ route('admin.content.comics.chapters.destroy', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}" method="post" style="display: none;">
+                    <form id="delete-form" action="{{ route('admin.content.comics.chapters.destroy', ['comic' => $comic->slug, 'chapter' => $chapter->id]) }}" method="post" style="display: none;">
                         @method('delete')
                         @csrf
                     </form>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="card-body">
-            <form action="{{ route('admin.content.comics.chapters.upload', ['comic' => $comic->id, 'chapter' => $chapter->id]) }}" enctype="multipart/form-data" class="dropzone" id="my-dropzone" method="post">
+            <form action="{{ route('admin.content.comics.chapters.upload', ['comic' => $comic->slug, 'chapter' => $chapter->id]) }}" enctype="multipart/form-data" class="dropzone" id="my-dropzone" method="post">
                 @csrf
             </form>
         </div>

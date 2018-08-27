@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Webpatser\Uuid\Uuid;
 
+/**
+ * @property Language language
+ * @property mixed order
+ */
 class ComicVolume extends Model
 {
 
@@ -25,7 +29,7 @@ class ComicVolume extends Model
      */
     public function chapters()
     {
-        return $this->hasMany(ComicChapter::class);
+        return $this->hasMany(ComicChapter::class)->orderBy('number');
     }
 
     /**

@@ -94,7 +94,7 @@
                         <div class="col-auto">
 
                             <!-- Option -->
-                            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="btn btn-sm btn-outline-primary">
+                            <a href="{{ route('admin.content.comics.show', ['comic' => $comic->slug]) }}" class="btn btn-sm btn-outline-primary">
                                 Manage
                             </a>
 
