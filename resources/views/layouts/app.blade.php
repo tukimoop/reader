@@ -1,86 +1,61 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="{{ asset('favicon.jpg') }}"/>
+        <link rel="shortcut icon" href="{{ asset('favicon.jpg') }}"/>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Lida') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+        <!-- Global stylesheets -->
+        <link href="{{ asset('assets/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap_limitless.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/components.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+        <!-- /global stylesheets -->
 
-    <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Core JS files -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('assets/plugins/loaders/blockui.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/ui/slinky.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/ui/ripple.min.js') }}"></script>
+        <!-- /core JS files -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <!-- Theme JS files -->
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+        <!-- /theme JS files -->
 
-                    </ul>
+    </head>
+    <body>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @else
-                            @can('access-admin')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.dashboard.index') }}">{{ __('Admin') }}</a>
-                                </li>
-                            @endcan
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        @include('layouts.partials.navigation')
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+        <!-- Page content -->
+        <div class="page-content container">
+
+            <!-- Main content -->
+            <div class="content mt-2">
+
+                @yield('content')
+
             </div>
-        </nav>
+            <!-- /main content -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+        </div>
+        <!-- /page content -->
+
+    </body>
 </html>

@@ -51,7 +51,7 @@ class ChaptersController extends Controller
             'comic_id' => $comic->id,
             'comic_volume_id' => $request->input('comic_volume_id'),
             'quiet_release' => $request->input('quiet_release') ?? false,
-            'is_visible' => $request->input('is_visible') ?? false
+            'is_visible' => $request->input('is_visible') ?? true
         ]);
 
         flash('Successfully created chapter.')->success();

@@ -76,6 +76,7 @@
             maxFilesize: 10, // MB
             maxFiles: 150,
             parallelUploads: 8,
+            autoProcessQueue: true,
             acceptedFiles: ".jpeg,.jpg,.png",
         };
 
@@ -110,8 +111,8 @@
             hideTooltip(e.trigger);
         });
 
-        let myDropzone = Dropzone.forElement(".dropzone");
-        myDropzone.processQueue();
+        // let myDropzone = Dropzone.forElement(".dropzone");
+        // myDropzone.processQueue();
     </script>
 
 @endsection
