@@ -11,9 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('reader.index');
-Route::get('/home', 'HomeController@index')->name('reader.home');
+
+Route::get('/latest', 'HomeController@latest')->name('reader.latest');
+
+Route::get('/comics', 'HomeController@latest')->name('reader.comics');
+
+Route::get('/comic/{slug}', 'HomeController@latest')->name('reader.comics.show');
+
+Route::get('/read/{slug}', 'HomeController@latest')->name('reader.comics.chapter.show');

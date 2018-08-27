@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Homepage')
+
 @section('content')
 
     <h4>Latest</h4>
@@ -10,14 +12,10 @@
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="card-img-actions mx-1 mt-1">
-                    <img class="card-img img-fluid" src="https://cdn.discordapp.com/attachments/371771054940487686/483650043656667143/hit_mssss.jpg" alt="">
+                    <img class="card-img img-fluid" src="{{ $chapter->volume->comic->thumbnail_url }}" alt="">
                     <div class="card-img-actions-overlay card-img">
-                        <a href="../../../../global_assets/images/placeholders/placeholder.jpg" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
-                            <i class="icon-plus3"></i>
-                        </a>
-
-                        <a href="#" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round ml-2">
-                            <i class="icon-link"></i>
+                        <a href="{{ route('reader.comics.show', $chapter->volume->comic->slug) }}" class="btn btn-outline bg-white text-white border-white border-2 btn-icon rounded-round" data-popup="lightbox" rel="group">
+                            <i class="icon-book3"></i>
                         </a>
                     </div>
                 </div>
@@ -31,11 +29,16 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="https://psychoplay.co/read/Moujuusei-Shounen-Shoujo/12" class="btn btn-default btn-block">Read Chapter {{ $chapter->number }}</a>
+                    <a href="{{ env('APP_URL') }}/read/{{ $chapter->volume->comic->slug }}/{{ $chapter->volume->order }}/{{ $chapter->number }}" class="btn btn-default btn-block">Read Chapter {{ $chapter->number }}</a>
                 </div>
             </div>
         </div>
         @endforeach
 
     </div>
+
+    <h4>Comments</h4>
+
+    @include('layouts.partials.disqus')
+
 @endsection

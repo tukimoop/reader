@@ -16,16 +16,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        Auth::user()->assign('admin');
-//        Auth::user()->assign('content-manager');
-
         $latest = ComicChapter::where('quiet_release', false)
             ->where('is_visible', true)
-            ->orderBy('release_date')
+            ->orderByDesc('release_date')
             ->limit(8)
             ->get();
 
         return view('home')
+            ->with(compact('latest'));
+    }
+
+    public function latest()
+    {
+        $latest = ComicChapter::where('quiet_release', false)
+            ->where('is_visible', true)
+            ->orderByDesc('release_date')
+            ->simplePaginate(16);
+
+        return view('latest')
             ->with(compact('latest'));
     }
 }
