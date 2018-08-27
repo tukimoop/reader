@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed folder_hash
  * @property mixed name
  * @property mixed number
- * @property mixed slug
+ * @property ComicChapterImage images
  */
 class ComicChapter extends Model
 {

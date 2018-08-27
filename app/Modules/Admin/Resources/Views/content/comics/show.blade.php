@@ -14,9 +14,14 @@
                 <i class="fe fe-more-vertical"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="#!" class="dropdown-item">
+                <a href="#" class="dropdown-item" onclick="event.preventDefault();document.getElementById('delete-form').submit();">
                     Delete Comic
                 </a>
+
+                <form id="delete-form" action="{{ route('admin.content.comics.destroy', $comic->id) }}" method="post" style="display: none;">
+                    @method('delete')
+                    @csrf
+                </form>
             </div>
         </div>
 
@@ -29,7 +34,7 @@
             </a>
 
             <h2 class="card-title">
-                <a href="profile-posts.html">{{ $comic->name }}</a>
+                <a href="{{ route('admin.content.comics.show', $comic->id) }}">{{ $comic->name }}</a>
             </h2>
 
             <p class="card-text text-muted">
@@ -58,9 +63,11 @@
                 </div>
                 <div class="col-auto">
 
+                    @if ($comic->volumes->isNotEmpty())
                     <a href="{{ route('admin.content.comics.chapters.create', $comic->id) }}" class="btn btn-sm btn-success">
                         Create a Chapter
                     </a>
+                    @endif
 
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createVolumeModal">
                         Create a Volume

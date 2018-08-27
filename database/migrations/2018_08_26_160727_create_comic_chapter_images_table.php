@@ -24,7 +24,7 @@ class CreateComicChapterImagesTable extends Migration
 
             // Foreign Keys
             $table->foreign('comic_id')->references('id')->on('comics');
-            $table->foreign('comic_chapter_id')->references('id')->on('comic_chapters');
+            $table->foreign('comic_chapter_id')->references('id')->on('comic_chapters')->onDelete('cascade');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Modules\Admin\Http\Controllers\Content;
 
 use App\Models\Comic;
+use App\Models\ComicChapterImage;
 use App\Models\ComicStatus;
 use App\Models\Genre;
 use App\Models\Language;
@@ -85,13 +86,40 @@ class ComicsController extends Controller
         ]);
 
         // Associate genres
-        foreach ($request->input('genres') as $key => $genreId) {
-            $genre = Genre::find($genreId);
-            $comic->genres()->attach($genre);
+        if ($request->input('genres')) {
+            foreach ($request->input('genres') as $key => $genreId) {
+                $genre = Genre::find($genreId);
+                $comic->genres()->attach($genre);
+            }
         }
 
         flash('Successfully created comic.')->success();
 
         return redirect()->route('admin.content.comics');
+    }
+
+    /**
+     * @param Request $request
+     * @param Comic $comic
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Request $request, Comic $comic)
+    {
+        try {
+            $path = "public/comics/{$comic->folder_hash}";
+            Storage::deleteDirectory($path);
+
+            $comic->chapters()->delete();
+            $comic->delete();
+
+            flash('Successfully deleted comic.')->success();
+
+            return redirect()->route('admin.content.comics');
+
+        }
+        catch (\Exception $exception) {
+            flash('Failed to delete comic. ' . $exception->getMessage());
+            return redirect()->route('admin.content.comics');
+        }
     }
 }

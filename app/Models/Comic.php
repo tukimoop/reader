@@ -9,6 +9,8 @@ use Webpatser\Uuid\Uuid;
  * @property mixed folder_hash
  * @property mixed id
  * @property mixed name
+ * @property ComicChapter chapters
+ * @property mixed slug
  */
 class Comic extends Model
 {

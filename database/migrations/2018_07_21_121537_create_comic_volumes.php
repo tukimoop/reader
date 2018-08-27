@@ -28,7 +28,7 @@ class CreateComicVolumes extends Migration
             $table->softDeletes();
 
             // Foreign Keys
-            $table->foreign('comic_id')->references('id')->on('comics');
+            $table->foreign('comic_id')->references('id')->on('comics')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages');
         });
     }

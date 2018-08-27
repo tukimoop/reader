@@ -1,6 +1,6 @@
 @extends('admin::layouts.admin')
 
-@section('pageTitle', 'Chapter ' . $chapter->number)
+@section('pageTitle', 'Chapter ' . $chapter->number . ' - ' . $chapter->name)
 
 @section('content')
 
@@ -75,7 +75,8 @@
             paramName: 'file',
             maxFilesize: 10, // MB
             maxFiles: 150,
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            parallelUploads: 8,
+            acceptedFiles: ".jpeg,.jpg,.png",
         };
 
         $('.thumb-url').tooltip({
@@ -108,6 +109,9 @@
             setTooltip(e.trigger, 'Failed');
             hideTooltip(e.trigger);
         });
+
+        let myDropzone = Dropzone.forElement(".dropzone");
+        myDropzone.processQueue();
     </script>
 
 @endsection

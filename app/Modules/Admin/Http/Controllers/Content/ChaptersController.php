@@ -138,10 +138,14 @@ class ChaptersController extends Controller
     public function announce(Request $request, Comic $comic, ComicChapter $chapter)
     {
         $webhook = new Client(env('DISCORD_WEBHOOK'));
+        $websiteName = setting('general.site.name');
 
-        $message = $comic->name . " Chapter " . $chapter->number . " is out on Psycho Play.";
+        $message = $comic->name . ' Chapter ' . $chapter->number . " is now available on {$websiteName}.";
+        $url = env('APP_URL') . '/comics/' . $comic->slug . '/' . $chapter->number;
 
+        $webhook->message('@here')->send();
         $webhook->message($message)->send();
+        $webhook->message($url)->send();
 
         flash('Successfully sent Discord announcement.')->success();
 

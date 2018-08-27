@@ -38,12 +38,12 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Name of the comic" required>
+                            <input type="text" class="form-control" name="name" placeholder="Name of the chapter" required>
                         </div>
 
                         <div class="form-group">
                             <label for="name_native">Native Name</label>
-                            <input type="text" class="form-control" name="name_native" placeholder="Name of the comic in its original language">
+                            <input type="text" class="form-control" name="name_native" placeholder="Name of the chapter in its original language">
                         </div>
 
 
@@ -117,7 +117,7 @@
                 </div>
 
                 <a class="btn btn-secondary float-left" href="{{ route('admin.content.comics.show', $comic->id) }}">Back to {{ $comic->name }}</a>
-                <button type="submit" class="btn btn-primary float-right">Create Comic</button>
+                <button type="submit" class="btn btn-primary float-right">Create Chapter</button>
             </form>
 
         </div>
