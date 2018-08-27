@@ -26,7 +26,7 @@
                     @endcan
                     <li class="nav-item dropdown dropdown-user">
                         <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../../../global_assets/images/image.png" class="rounded-circle" alt="">
+                            <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" class="rounded-circle" alt="">
                             <span>{{ Auth::user()->name }}</span>
                         </a>
 
