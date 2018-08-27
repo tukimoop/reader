@@ -65,7 +65,7 @@
                         <div class="col-auto">
 
                             <!-- Thumbnail -->
-                            <a href="{{ route('admin.content.comics.show', $comic->id) }}" class="avatar">
+                            <a href="{{ route('admin.content.comics.show', $comic->slug) }}" class="avatar">
                                 <img src="{{ $comic->thumbnail_url }}" alt="..." class="avatar-img rounded-circle">
                             </a>
 
@@ -74,7 +74,7 @@
 
                             <!-- Title -->
                             <h4 class="mb-1 name">
-                                <a href="{{ route('admin.content.comics.show', $comic->id) }}">{{ $comic->name }}</a>
+                                <a href="{{ route('admin.content.comics.show', $comic->slug) }}">{{ $comic->name }}</a>
 
                                 @if (!$comic->is_visible)
 
