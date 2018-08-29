@@ -68,6 +68,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'last.seen']], funct
         // Comics
         Route::get('', 'MembersController@index')->name('admin.members.index');
 
+        Route::get('{user}', 'MembersController@show')->name('admin.members.show');
+
         // User Groups
         Route::group(['prefix' => 'groups'], function () {
 

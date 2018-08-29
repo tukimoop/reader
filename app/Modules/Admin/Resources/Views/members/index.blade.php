@@ -44,23 +44,9 @@
                             </div>
                             <div class="col-auto">
 
-                                <a href="#!" class="btn btn-sm btn-primary d-none d-md-inline-block">
-                                    View
+                                <a href="{{ route('admin.members.show', $member->id) }}" class="btn btn-sm btn-outline-primary d-none d-md-inline-block">
+                                    Manage
                                 </a>
-
-                            </div>
-                            <div class="col-auto">
-
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                                        <i class="fe fe-more-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">
-                                            Manage
-                                        </a>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>

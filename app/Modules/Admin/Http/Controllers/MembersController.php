@@ -19,4 +19,11 @@ class MembersController extends Controller
         return view('admin::members.index')
             ->with(compact('members'));
     }
+
+    public function show(User $user)
+    {
+
+        return view('admin::members.show')
+            ->with(compact('user'));
+    }
 }
