@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-start flex-nowrap">
                             <div>
-                                <a href="{{ route('reader.comics.show', $chapter->volume->comic->slug) }}" class="text-default font-weight-semibold h6">{{ $chapter->volume->comic->name }}</a>
+                                <a href="{{ route('reader.comics.show', $chapter->volume->comic->slug) }}" class="text-default font-weight-semibold h6">{{ $chapter->volume->comic->name }}</a> <br>
                                 <span>Released {{ $chapter->release_date->diffForHumans() }}</span>
                             </div>
                         </div>

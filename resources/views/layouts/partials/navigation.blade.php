@@ -44,7 +44,12 @@
                 @endauth
 
                 @guest
-                    <li><a data-toggle="modal" data-target="#login-modal"><i class="icon-reading mr-2"></i> Login</a></li>
+                    <li class="nav-item">
+                        <a class="navbar-nav-link" href="{{ route('login') }}">
+                            <i class="icon-reading mr-2"></i>
+                            {{ __('Login') }}
+                        </a>
+                    </li>
                 @endguest
             </ul>
         </div>
