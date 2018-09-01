@@ -30,9 +30,10 @@ class ComicsController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
         $comicStatuses = ComicStatus::all();
         $genres = Genre::all();

@@ -13,8 +13,20 @@
     @include('admin::layouts.partials.flash')
 
     <!-- Member List -->
-    <div class="row">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{{ route('admin.members.update', $user->id) }}" enctype="multipart/form-data">
+                @csrf
 
+                <select name="role" class="form-control">
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->name }}">{{ $role->title }}</option>
+                    @endforeach
+                </select>
+
+                <button type="submit" class="btn btn-primary mt-2">Update Role</button>
+            </form>
+        </div>
     </div>
 
 @endsection

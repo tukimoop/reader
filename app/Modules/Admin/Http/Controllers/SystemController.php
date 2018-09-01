@@ -6,15 +6,21 @@ use App\Modules\Admin\Http\Requests\Settings\UpdateGeneral;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Admin\Http\Requests\Settings\UpdateSecurity;
+use Illuminate\Http\Request;
 
 class SystemController extends Controller
 {
 
     /**
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function general()
+    public function general(Request $request)
     {
+        if (!$request->user()->isAn('admin')) {
+            return redirect()->back();
+        }
+
         return view('admin::system.general');
     }
 
