@@ -33,10 +33,8 @@ class MembersController extends Controller
 
     public function updateRole(Request $request, User $user)
     {
-        if (!is_null($user->roles())) {
-            $user->retract($user->roles()->first()->name);
-        }
-        
+        $user->assign('content-manager');
+        $user->retract($user->roles()->first()->name);
         $user->assign($request->input('role'));
 
         flash('Successfully updated role for that user.')->success();
