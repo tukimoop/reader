@@ -33,7 +33,7 @@ class MembersController extends Controller
 
     public function updateRole(Request $request, User $user)
     {
-        if ($user->roles()) {
+        if (!is_null($user->roles())) {
             $user->retract($user->roles()->first()->name);
         }
         
