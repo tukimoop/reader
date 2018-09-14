@@ -37,7 +37,7 @@
                                     @if ($member->isOnline())
                                         <span class="text-success">●</span> Online
                                     @else
-                                        Last seen {{ $member->last_seen->diffForHumans() }}
+                                        Last seen {{ ($member->last_seen) ? $member->last_seen->diffForHumans() : 'N/A' }}
                                     @endif
                                 </p>
 
