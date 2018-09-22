@@ -44,6 +44,6 @@ class CreateChapters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comic_chapters');
+        Schema::dropIfExists('chapters');
     }
 }

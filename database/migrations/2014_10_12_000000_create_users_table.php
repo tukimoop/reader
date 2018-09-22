@@ -23,8 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('avatar_url')->nullable();
             $table->string('cover_url')->nullable();
             $table->dateTime('last_seen')->nullable();
+            $table->dateTime('email_verified_at')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
