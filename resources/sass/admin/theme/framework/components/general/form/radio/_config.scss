@@ -1,0 +1,29 @@
+//
+// Config
+//
+
+
+
+$k-radio-config: (
+	self: (
+		transition: all 0.3s ease,
+		size: 18px,
+		tick: 6px
+	),
+	
+	outline: (
+		border: (
+			default: darken(k-grey-color(2), 5%),
+			checked: darken(k-grey-color(2), 8%),
+		),
+		tick: darken(k-grey-color(2), 10%),
+	),
+
+	solid: (
+		bg: (
+			default: k-grey-color(0),
+			checked: k-grey-color(1),
+		),
+		tick: darken(k-grey-color(1), 16%)
+	)
+)

@@ -1,0 +1,136 @@
+//
+// Widget 1
+//
+
+// General Mode
+.k-widget-1 {	 
+	.nav {
+		.nav-item {
+			.nav-link {
+				> span {
+					font-weight: 500;
+					font-size: 1rem;
+					color: #B0AEC4;
+
+					> i {
+						font-size: 1.4rem;
+					}
+				}
+			}
+		}
+	}	 	
+	.k-widget-1__body-items {		
+		.k-widget-1__body-item {
+			display: flex;
+			align-items: center;
+			margin-top: 2rem;
+			justify-content: space-between;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.k-widget-1__body-item-info {
+				width: 60%;
+				padding-right: 0.5rem;				
+
+				> a {
+					text-decoration: none;
+
+					.k-widget-1__body-item-title {		  											 
+						font-weight: 600; 
+						color: #5D5B6E;
+						font-size: 1.1rem;	
+						padding-bottom: 0.3rem;							
+					}
+				}		
+
+				.k-widget-1__body-item-desc {
+					font-weight: 440;
+					color: #BBBACC;
+				}
+			}
+
+			.k-widget-1__body-item-stats {
+				width: 35%;
+				min-width: 35%;
+				display: flex;
+				flex-grow: 1; // IE11 & IE10 fix;		
+				align-items: center;
+				justify-content: flex-end;
+				padding-left: 0.75rem;
+
+				.k-widget-1__body-item-value {
+					text-align: right;
+					font-weight: 550;
+					color: #9593A8;
+					font-size: 1.2rem;
+				}
+
+				.k-widget-1__body-item-progress {
+					padding-left: 1.4rem;
+					width: 45%;		
+					min-width: 45%;
+
+
+					.progress {
+						height : 0.35rem;
+						background-color: #e3e2ef;
+
+						.progress-bar {
+							border-radius: 3px;
+						}
+					}	
+				}
+			}
+		}		 
+	}
+		 
+
+	// States
+	@each $name, $color in $k-state-colors {
+		 			 
+		.k-widget-1__body-items{
+			.k-widget-1__body-item {
+				.k-widget-1__body-item-info {
+					> a {
+								
+						&:hover {	
+							.k-widget-1__body-item-title {
+								color: k-state-color(brand, base) !important;
+							}							
+						}								 
+					}	
+				}
+			}					 
+		}	 	 	
+	}	   		
+}
+
+
+// Mobile Mode
+@include k-mobile {
+	.k-widget-1 {	 
+		.nav {
+			.nav-item {
+				max-width: 100%;
+	            width: 6rem;
+	            margin: 0.6rem;
+
+				.nav-link {
+					> span {						
+						font-size: 1rem;						
+
+						> i {
+							font-size: 1.2rem;
+						}
+					}
+				}
+			}
+		}
+	}		 
+}

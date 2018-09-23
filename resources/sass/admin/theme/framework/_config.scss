@@ -1,0 +1,162 @@
+//
+// Global Framework Config
+//
+
+
+
+
+// SASS Helper Functions
+@import "components/base/base/functions";
+
+
+// Layout Breakpoints(bootstrap responsive breakpoints)
+// Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
+$k-media-breakpoints: (
+    // Extra small screen / phone
+    xs: 0,
+
+    // Small screen / phone
+    sm: 576px,
+    
+    // Medium screen / tablet
+    md: 768px,
+    
+    // Large screen / desktop
+    lg: 1024px, //1024px,
+    
+    // Extra large screen / wide desktop
+    xl: 1200px,
+
+    // Extra large screen / wide desktop
+    xxl: 1600px
+) !default;
+
+// Global rounded border mode
+$k-rounded: true !default;
+
+
+// Border Radius
+$k-border-radius: 4px !default;
+
+// Core icon codes(lineawesome icons: https://icons8.com/line-awesome)
+$k-action-icons: (
+    close: '\f191',
+    down: '\f110',
+    up: '\f113',
+    left: '\f111',  
+    right: '\f112',
+    plus: '\f2c2',
+    minus: '\f28e'
+) !default;
+
+// Elevate shadow
+$k-elevate-shadow: 0px 0px 13px 0px rgba(82,63,105,0.05);
+$k-elevate-shadow-dark: 0px 0px 20px 0px rgba(103,92,139,0.05);
+
+// Transition
+$k-transition: all 0.3s !default;
+
+// Modal Z-index
+$k-modal-zindex: 1050 !default;
+
+// dropdown Z-index
+$k-dropdown-zindex: 95 !default;
+
+// State Colors
+// Brand colors
+$k-brand-color: #6e4ff6 !default;
+$k-brand-inverse-color: #ffffff !default; 
+
+// State colors
+$k-state-colors: (
+    // Keen states
+    brand: (
+        base: $k-brand-color,
+        inverse: $k-brand-inverse-color
+    ),
+    metal: (
+        base: #dfe4ec, 
+        inverse: #67707e
+    ),  
+    light: (
+        base: #ffffff,
+        inverse: #282a3c 
+    ),
+    dark: (
+        base: #4c467a,
+        inverse: #ffffff 
+    ),
+    accent: (
+        base: #00c5dc,
+        inverse: #ffffff 
+    ),
+    focus: (
+        base: #9816f4,
+        inverse: #ffffff 
+    ),
+
+    // Bootstrap states
+    primary: (
+        base: #5867dd,
+        inverse: #ffffff
+    ),
+    success: (
+        base: #1dc9b7,
+        inverse: #ffffff
+    ),
+    info: (
+        base: #5578eb,
+        inverse: #ffffff
+    ),
+    warning: (
+        base: #ffb822,
+        inverse: #111111
+    ),
+    danger: (
+        base: #fd3995,
+        inverse: #ffffff
+    )    
+)!default;
+
+// Root Font Settings
+$k-font: (
+    families: (
+        regular: 'Poppins',  
+        heading: 'Roboto'
+    ),
+    size: (
+        desktop: 13px,
+        tablet: 12px,
+        mobile: 12px
+    ), 
+    weight: 300, 
+    color: (
+        text: #333333,
+        link: (
+            default: k-state-color(brand),
+            hover: darken(k-state-color(brand), 6%)
+        )
+    )
+)!default; 
+
+// Base Grey Colors
+$k-base-grey-colors: (
+    -3:   lighten(#ebedf2, 5%),
+    -2:   lighten(#ebedf2, 4%),
+    -1:   lighten(#ebedf2, 3%),  
+     0:   #ebedf2,
+     1:   darken(#ebedf2, 3%),  
+     2:   darken(#ebedf2, 6%),  
+     3:   darken(#ebedf2, 9%) 
+);
+
+// Base Font Colors
+$k-base-font-colors: (
+    -3:   #b3b1c2,
+    -2:   #7b7e8a,  
+    -1:   #464457,  
+     0:   #3f4047,
+     1:   darken(#3f4047, 3%),  
+     2:   darken(#3f4047, 6%),  
+     3:   darken(#3f4047, 9%)  
+);

@@ -18,8 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 Auth::routes(['verify' => true]);
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::redirect('admin', 'admin/dashboard');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+});

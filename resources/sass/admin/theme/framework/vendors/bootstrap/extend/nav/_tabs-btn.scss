@@ -1,0 +1,165 @@
+//
+// Tabs
+//
+
+
+// Base
+@mixin k-nav-tabs-btn-base() {
+    .nav-pills.nav-tabs-btn {
+        @include k-clearfix();
+
+        display: flex;
+        justify-content: center; 
+        padding-bottom: 2rem; 
+
+        .nav-item {
+            max-width: 100%;
+            width: 6.5rem;
+            margin: 0.8rem;
+            box-shadow: rgba(69, 65, 78, 0.06) 0px 1px 15px 1px;   
+            border-radius: 0.5rem;
+            text-align: center;
+
+            .nav-link {               
+                display: flex;
+                justify-content: center;
+                flex-direction: column;  
+                align-items: center; 
+                padding: 1.3rem 0; 
+
+                > span {                   
+                    display: block;
+
+                    > i {
+                        margin-right: 0;
+                        padding-bottom: 1rem;                    
+                    }
+                }
+            }
+        }
+
+        .nav-link {
+            border: 0;            
+            padding: 12px 0;
+            font-size: 1rem;
+            font-weight: 400;
+
+            @include k-icons-style(font-size, (fontawesome: 1.2rem, lineawesome: 1.3rem, flaticon: 1.4rem) );  
+            
+            i {
+                vertical-align: middle;
+                line-height: 0;
+                display: inline-block;  
+                margin-right: 0.5rem;
+            }     
+        }
+
+        &.nav-tabs-btn-2x {
+            a.nav-link {
+                border-bottom-width: 2px !important;
+            }
+        }
+
+        &.nav-tabs-btn-left {
+            float: left;
+        }
+
+        &.nav-tabs-btn-right {
+            float: right;
+        }
+
+        // Portlet Tabs
+        .k-portlet--tabs & {
+            margin: 0 0 -1px 0;
+            
+
+            &.nav-tabs-btn-2x {
+                margin: 0 0 -2px 0;
+            }
+            
+            .nav-item {
+                display: flex;
+                align-items: stretch;
+
+                .nav-link {
+                    display: flex;
+                    align-items: center; 
+                }
+            }
+        }
+
+        // Bold tab links
+        &.nav-tabs-bold {
+            .nav-item {
+                .nav-link {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+// Skin
+@mixin k-nav-tabs-btn-skin() {
+    .nav-pills.nav-tabs-btn {        
+        a.nav-link {  
+
+            &.active { 
+                > span {
+                    color: #fff; 
+                } 
+            }
+
+            > span {
+                color: k-font-color(-2); 
+            }            
+        }
+
+        // state colors
+        @each $name, $color in $k-state-colors {
+            &.nav-pills-btn-#{$name} {                  
+                a.nav-link {
+
+                    &.active {
+                        background-color: k-get($color, base);
+
+                        > span {
+                            color: k-get($color, inverse) !important;
+                        }
+                    }                    
+                }
+            }
+        }
+    }     
+}
+
+// Build
+// Base
+@include k-nav-tabs-btn-base();
+
+// Skin
+@include k-nav-tabs-btn-skin();   
+
+
+// Mobile Mode
+@include k-mobile {
+    .nav-pills.nav-tabs-btn {    
+        .nav {
+            .nav-item {
+                max-width: 100%;
+                width: 6.5rem;
+                margin: 0.6rem;
+
+                .nav-link {
+                    > span {                        
+                        font-size: 1rem;                        
+
+                        > i {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }        
+}

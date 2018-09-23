@@ -1,0 +1,259 @@
+//
+// Profile v1
+//
+
+
+
+
+$base-font: #b2afc6;
+
+.k-profile {
+	
+	.k-profile__content {	
+		padding: 2.5rem;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-bottom-color: k-grey-color();
+
+		@include k-tablet-and-mobile {
+			padding: 1.5rem;
+		}
+
+		> .row > div {
+			display: flex;
+			align-items:stretch;
+		}
+
+		.k-profile__main {
+			display:flex;
+			flex-direction: row;
+			flex: 1;
+			flex-wrap: wrap;
+			align-items:center;			
+			border-right: 1px solid k-grey-color();
+
+			// see: src\theme\framework\vendors\bootstrap\_variables.scss
+			@include k-responsive-below(k-media-breakpoint(xl)) {
+				border-bottom: 1px solid k-grey-color();
+				border-right: 0;
+				padding: 1.5rem 0;
+			}
+
+			.k-profile__main-pic {
+				position: relative;
+				width: 10rem;
+				height: 10rem;
+				margin-right: 2rem;
+
+				img {
+					width:100%;
+					height:auto;
+					border-radius: 50%;
+					box-shadow: $k-elevate-shadow-dark;
+				}
+
+				.k-profile__main-pic-upload {
+					background-color: k-state-color(info, base);
+					border-radius: 50%;
+					width:2.5rem;
+					height:2.5rem;
+					position: absolute;
+					bottom: 0.25rem;
+					right: 0.25rem;
+					display:flex;
+					align-items: center;
+					justify-content: center;
+					flex:1;
+					box-shadow: $k-elevate-shadow-dark;
+					@include k-transition();
+
+					i {
+						@include k-transition();
+						color: k-state-color(info, inverse);
+						font-size: 1.25rem;
+					}
+
+					&:hover{
+						@include k-transition();
+						background-color: darken(k-state-color(info, base), 10%);
+
+						i {
+							@include k-transition();
+							color: darken(k-state-color(info, inverse), 10%);
+						}
+					}
+				}
+			}
+
+			.k-profile__main-info {
+				margin: 1.5rem 0;
+
+				.k-profile__main-info-name {
+					font-size:1.5rem;
+					font-weight: 600;
+					color: #464457;
+				}
+
+				.k-profile__main-info-position {
+					font-weight:500;
+					color: #b2afc6;
+				}
+			}
+		}
+
+		.k-profile__contact{
+			display:flex;
+			flex-direction:column;
+			align-items:flex-start;
+			justify-content: center;
+			flex: 1;
+			padding: 0 2rem;
+			border-right: 1px solid k-grey-color();
+
+			// see: src\theme\framework\vendors\bootstrap\_variables.scss
+			@include k-responsive-below(k-media-breakpoint(xxl)) {
+				border-right: 0;
+			}
+
+			@include k-responsive-below(k-media-breakpoint(xl)) {
+				border-bottom: 1px solid k-grey-color();
+				padding: 1.5rem 0;				
+			}
+
+			.k-profile__contact-item {
+				display:flex;
+				flex-direction: row;
+				align-items: center;
+				margin-bottom: 1rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.k-profile__contact-item-icon {
+					i {
+						font-size: 1.5rem;
+						@include k-transition();
+					}
+
+					&.k-profile__contact-item-icon-whatsup {
+						color: #45cb9a;
+					}
+
+					&.k-profile__contact-item-icon-twitter {
+						color: #18c1f8;
+					}
+				}
+
+				.k-profile__contact-item-text {
+					@include k-transition();
+					font-weight:500;
+					padding-left:1.5rem;
+					padding-bottom: 0.15rem;
+					color: #b2afc6;
+				}
+				
+				&:hover {
+					@include k-transition();
+
+					.k-profile__contact-item-text {
+						@include k-transition();
+						color: k-brand-color();
+					}
+				}
+			}
+		}
+
+		.k-profile__stats {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 0 0 2rem;
+
+			@include k-responsive-below(k-media-breakpoint(xl)) {
+				padding: 1.5rem 0;		
+			}
+
+			@include k-responsive-below(k-media-breakpoint(sm)) {
+				flex-wrap: wrap;
+				justify-content: flex-start;
+			}
+
+			.k-profile__stats-item {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				padding-right: 1rem;
+
+				&:last-child {
+					padding-right: 0;
+
+					@include k-responsive-below(k-media-breakpoint(sm)) {
+						padding-right: 1rem;
+					}
+				}
+
+				.k-profile__stats-item-label {
+					color: #5d5b6f;
+					font-size: 1.1rem;
+					font-weight: 600;
+					margin-bottom: 0.25rem;
+				}
+
+				.k-profile__stats-item-chart {
+					display: flex;
+					align-items: center;
+
+					span {
+						color: #b2afc6;
+						font-size: 1rem;
+						font-weight: 400;
+					}
+
+					canvas {
+						margin-left: 1rem;
+					}
+				}
+
+				@include k-responsive-below(k-media-breakpoint(sm)) {
+					flex-basis: auto;
+				}
+			}
+		}
+	}
+
+	// k-profile - override tabs
+	.k-profile__nav {
+		padding: 0 3rem;
+
+		@include k-tablet-and-mobile{
+			padding: 0 1.5rem;
+		}
+
+		.nav.nav-tabs.nav-tabs-line{
+			border-bottom: 1px solid transparent !important;
+			margin-bottom: 0;
+
+			.nav-item{
+				margin-right: 4rem;
+
+				&:last-child{
+					margin-right:0;
+				}
+
+				a.nav-link{
+					padding: 2rem 0;
+					font-weight:600;
+					font-size: 1.1rem;
+					@include transition(all 0.3s ease);
+
+					&.active,
+					&:hover{
+						color: k-state-color(brand, base);
+						border-bottom-width:2px;
+					}
+				}
+			}
+		}
+	}
+}

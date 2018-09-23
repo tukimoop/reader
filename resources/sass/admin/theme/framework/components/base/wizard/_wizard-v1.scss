@@ -1,0 +1,39 @@
+//
+// Wizard v1
+//
+
+
+// General mode
+.k-wizard.k-wizard--v1 {
+	
+}
+
+// Dekstop mode 
+@include k-desktop {
+	.k-wizard.k-wizard--v1 {
+		.k-wizard__aside {
+			width: 200px;
+			border-right: 1px solid red;
+			padding: 1.5rem;
+		}
+
+		.k-wizard__wrapper {
+			padding: 1.5rem;
+		}
+	}
+}
+
+// Tablet and mobile mode 
+@include k-tablet-and-mobile {
+	.k-wizard.k-wizard--v1 {
+		.k-wizard__aside {
+			border-bottom: 1px solid red;
+			padding: 1rem;
+		}
+
+		.k-wizard__wrapper {
+			padding: 1rem;
+		}
+	}
+}
+

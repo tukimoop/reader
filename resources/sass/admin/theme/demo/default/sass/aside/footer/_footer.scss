@@ -1,0 +1,34 @@
+//
+// Aside Footer
+//
+
+
+
+
+.k-aside__footer {
+	padding: 2rem 0.5rem 2rem 0.5rem;
+	display: flex;
+	justify-content: center;
+
+	.dropdown.dropdown-inline,
+	.btn {
+		margin-right: 1rem;
+	}
+
+	&:last-child {
+		//margin-right: 0;
+	}
+
+	// Minimize
+	.k-aside--minimize & {
+		.dropdown.dropdown-inline,
+		.btn {
+			display: none;
+
+			&:last-child {
+				display: inline-block;
+				opacity: 0;
+			}
+		}
+	}
+}

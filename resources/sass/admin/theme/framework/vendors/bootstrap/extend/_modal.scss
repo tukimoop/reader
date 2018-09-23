@@ -1,0 +1,74 @@
+//
+// Modal
+//
+
+
+
+
+// Base
+@mixin k-modal-base() {
+    //== Base
+    .modal {    
+        .modal-content {
+            @include k-rounded {
+                border-radius: $k-border-radius;
+            }
+
+            .modal-header {
+                
+                .modal-title {
+                    font-weight: 500;
+                    font-size: 1.3rem;
+                }
+
+                .close  {
+                    @include k-close-icon();
+                    @include k-hover-transition();
+                    
+                    &:before {
+                        font-size: 1rem;
+                    }
+                    
+                    outline:none !important;
+                    span {
+                        display: none;    
+                    }
+                }
+            }
+        }    
+    }
+
+    .modal-open {
+        overflow: auto !important;
+        padding: 0 !important;
+    }
+}
+
+// Skin
+@mixin k-modal-skin($skin) {
+    .modal {    
+        .modal-content {
+            //box-shadow: ;
+
+            .modal-header {
+                .modal-title {
+                    color: k-font-color(1);
+                }
+
+                .close  {
+
+                    span {
+                        color: k-font-color(-1);
+                    }
+                }
+            }
+        }   
+    }
+}
+
+// Build
+// Base
+@include k-modal-base();
+
+// Skin
+@include k-modal-skin(light);
