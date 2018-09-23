@@ -1,1 +1,7 @@
-@import 'theme/framework/include';
+// Building from source files kept failing so we have to deal with this for now.
+
+@import "vendors/base/vendors.bundle";
+
+@import "demo/default/base/style.bundle";
+
+@import "vendors/custom/fullcalendar/fullcalendar.bundle";
